@@ -1,2 +1,2 @@
 <?php
-echo "Hai aja";
+echo "Hallo Covid";
