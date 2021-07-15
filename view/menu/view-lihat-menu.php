@@ -29,7 +29,15 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-3">
+            <div class="col">
+                <div class="btn-tambah">
+                <a href="#" class="btn btn-primary">Tambah</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
         <?php foreach($data as $row) : ?>
             <div class="col-md-4">
                 <div class="card mb-3">
