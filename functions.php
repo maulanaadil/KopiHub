@@ -11,6 +11,12 @@
       return $db->query($sql);
   }
 
+  function getMenu() {
+    $db = dbConnect();
+    $sql = "SELECT * FROM menu";
+    return $db->query($sql);
+  }
+
   function banner() {
       ?>
       <nav class="navbar navbar-light bg-light">
