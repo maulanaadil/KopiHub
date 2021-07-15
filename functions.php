@@ -13,10 +13,11 @@
 
   function banner() {
       ?>
-      <div id="banner">
-         <h2>Kopi Hub</h2>
-         <hr>
-     </div>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">Navbar</a>
+  </div>
+</nav>
     <?php
   }
 
