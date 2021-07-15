@@ -13,7 +13,7 @@
 
   function banner() {
       ?>
-     <div id="banner">
+      <div id="banner">
          <h2>Kopi Hub</h2>
          <hr>
      </div>
