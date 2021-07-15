@@ -19,7 +19,7 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
         <div class="row mt-3">
             <div class="col">
                 <div class="btn-tambah">
-                    <a href="#" class="btn btn-primary">Tambah</a>
+                    <a href="view-tambah-menu.php" class="btn btn-primary">Tambah</a>
                 </div>
             </div>
         </div>
