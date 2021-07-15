@@ -20,9 +20,9 @@
         <a href="view-tambah-pesanan.php" class="btn btn-success">Tambah</a>
     </div>
 
-    <div class="row">
+    <div class="row px-4">
         <?php foreach ($data as $barisdata) { ?>
-        <div class="col-sm-6">
+        <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
                     <h4 class="rincian-pesanan">Rincian Pesanan</h4>
