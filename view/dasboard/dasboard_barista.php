@@ -25,7 +25,7 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
         <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket"></i> <span>Pesanan</span></a></li>
 
         <li>
-          <a href="#"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
+          <a href="../login/logout.php"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
         </li>
       </ul>
     </menu>

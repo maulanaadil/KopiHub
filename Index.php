@@ -44,7 +44,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="password" name="password" class="form-control" placeholder="Passoword">
+                                        <input type="password" name="pass" class="form-control" placeholder="Passoword">
                                     </td>
                                 </tr>
                                 <tr>
