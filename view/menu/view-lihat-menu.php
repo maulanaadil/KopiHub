@@ -6,6 +6,19 @@ nav("Lihat Menu");
 dbConnect();
 $data = getMenu()->fetch_all(MYSQLI_ASSOC);
 ?>
+<aside class="sidebar">
+    <menu>
+        <ul class="menu-content">
+            <li>
+                <a href="../menu/view-lihat-menu.php"><i class="fa fa-cube"></i> <span>Menu</span> </a>
+            </li>
+            <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket"></i> <span>Pesanan</span></a></li>
+            <li>
+                <a href="#"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
+            </li>
+        </ul>
+    </menu>
+</aside>
 
 <body>
     <div class="container">
@@ -32,7 +45,7 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
                         <div class="card-body">
                             <h5 class="card-title"><?= $row["nama_menu"]; ?></h5>
                             <h5 class="card-title">Rp.<?= $row["harga"]; ?></h5>
-                            <a href="#" class="btn btn-primary">Ubah</a>
+                            <a href="view-ubah-menu.php" class="btn btn-primary">Ubah</a>
                             <a href="#" class="btn btn-primary">Hapus</a>
                         </div>
                     </div>
