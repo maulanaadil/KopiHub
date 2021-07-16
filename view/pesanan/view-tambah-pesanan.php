@@ -6,8 +6,8 @@
 
 </head>
 <body>
+<form method="post" action="./crud/tambah-pesanan.php">
 <h1 align="center">Tambah Pesanan</h1>
-<form method="post">
     <table align="center" class="table-sm">
         <tr>
             <td width="25%">No Meja</td>
@@ -16,7 +16,7 @@
         <tr>
             <td width="25%">Status Pesanan</td>
             <td width="25%">
-                <select class="form-select" id="status_pesanan">
+                <select class="form-select" id="status_pesanan" name="status_pesanan">
                     <option value="">Pilih Kondisi</option>
                     <option value="belum">Belum</option>
                     <option value="selesai">Selesai</option>
@@ -25,27 +25,22 @@
         </tr>
         <tr>
             <td width="25%">Jumlah Pemesanan</td>
-            <td><input type="number" id="jumlah_pemesanan" class="form-control"></td>
+            <td><input type="number" id="jumlah_pemesanan" name="jumlah_pemesanan" class="form-control"></td>
         </tr>
         <tr>
             <td width="25%">SubTotal</td>
-            <td><input type="number" id="sub_total" class="form-control"></td>
+            <td><input type="number" name="subTotal" id="sub_total" class="form-control"></td>
         </tr>
         <tr>
             <td>
             </td>
             <td>
                 <input type="reset" value="Reset" class="btn btn-danger">
-                <input type="submit" value="Submit" class="btn btn-success" onclick="doSave()">
+                <input type="submit" value="Submit" class="btn btn-success" name="btnSubmit">
             </td>
         </tr>
     </table>
 </form>
 </body>
-<script type="text/javascript">
-    function doSave() {
-
-    }
-</script>
 </html>
 
