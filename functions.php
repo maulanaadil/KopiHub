@@ -38,6 +38,7 @@ function nav($title)
   <nav class="navbar navbar-dark" style="background-color: #293949">
     <div class="container-fluid">
       <a class="navbar-brand">KopiHub</a>
+      <!-- <h5 style="color: white;">Halo, <?= $_SESSION["nama"]; ?></h5> -->
     </div>
   </nav>
 <?php
