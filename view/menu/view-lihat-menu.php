@@ -40,7 +40,7 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
         <div class="row mt-3">
             <?php foreach ($data as $row) : ?>
                 <div class="col-md-3">
-                    <div class="card mb-2" style="width: 14rem;">
+                    <div class="card mb-1" style="width: 14rem;">
                     <img src="../menu/images/<?php echo $row["gambar_menu"];?>" class="card-img-top" width="50" height="180">
                         <div class="card-body">
                             <h5 class="card-title"><?= $row["nama_menu"]; ?></h5>
