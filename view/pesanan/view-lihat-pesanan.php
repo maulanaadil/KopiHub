@@ -6,12 +6,35 @@ nav("Lihat Pesanan");
 dbConnect();
 $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
 ?>
-<div id="pesanan">
-    <h1>Pesanan</h1>
+
+<aside class="sidebar">
+    <menu>
+        <ul class="menu-content">
+
+            <li>
+                <a href="../menu/view-lihat-menu.php"><i class="fa fa-cube"></i> <span>Menu</span> </a>
+            </li>
+            <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket"></i> <span>Pesanan</span></a></li>
+
+            <li>
+                <a href="#"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
+            </li>
+        </ul>
+    </menu>
+</aside>
+<div class="container">
+<div class="row mt-3">
+    <div class="col">
+        <h1>Pesanan</h1>
+    </div>
 </div>
 
-<div class="btn-tambah">
-    <a href="view-tambah-pesanan.php" class="btn btn-success">Tambah</a>
+<div class="row mt-3">
+    <div class="col">
+        <div class="btn-tambah" style="margin-bottom: 20px">
+            <a href="view-tambah-pesanan.php" class="btn btn-success">Tambah</a>
+        </div>
+    </div>
 </div>
 
 <div class="row">
@@ -59,6 +82,7 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
     <?php
     }
     ?>
+</div>
 </div>
 </body>
 
