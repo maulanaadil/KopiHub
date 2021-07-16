@@ -39,17 +39,16 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
 
         <div class="row mt-3">
             <?php foreach ($data as $row) : ?>
-                <div class="col-md-3">
-                    <div class="card mb-1" style="width: 14rem;">
-                    <img src="../menu/images/<?php echo $row["gambar_menu"];?>" class="card-img-top" width="50" height="180">
                 <div class="col-md-4">
-                    <div class="card mb-3">
-                        <img src="../menu/images/<?php echo $row["gambar_menu"]; ?>" class="card-img-top" width="100" height="400">
+                    <div class="card mb-4" style="width: 16rem;">
+                        <img src="../menu/images/<?php echo $row["gambar_menu"]; ?>" class="card-img-top" width="80" height="250">
                         <div class="card-body">
+                        <center>
                             <h5 class="card-title"><?= $row["nama_menu"]; ?></h5>
                             <h5 class="card-title">Rp.<?= $row["harga"]; ?></h5>
                             <a href="view-ubah-menu.php" class="btn btn-primary">Ubah</a>
                             <a href="#" class="btn btn-primary">Hapus</a>
+                        </center>
                         </div>
                     </div>
                 </div>
