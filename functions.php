@@ -32,7 +32,7 @@ function nav($title)
     <title><?php echo $title ?></title>
   </head>
 
-  <nav class="navbar navbar-light bg-light">
+  <nav class="navbar navbar-dark" style="background-color: #293949">
     <div class="container-fluid">
       <a class="navbar-brand">KopiHub</a>
     </div>
