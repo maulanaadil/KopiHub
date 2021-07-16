@@ -5,12 +5,20 @@ dbConnect();
 
 nav("Tambah Menu");
 ?>
+<style>
+    .gambar {
+        max-width: 250px;
+        max-height: 250px;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
 <body>
     <div class="container mt-4">
         <h1>Tambah Menu</h1>
         <center>
-            <form action="tambah.php" method="post" class="mt-5">
+            <form action="tambah.php" method="post" class="mt-5" runat="server">
                 <table class="table-sm">
                     <tr>
                         <td width="25%">ID Menu</td>
@@ -30,11 +38,12 @@ nav("Tambah Menu");
                     </tr>
                     <tr>
                         <td>Gambar</td>
-                        <td><input type="file" name="gambar" class="form-control"></td>
+                        <td><input type="file" name="gambar" class="form-control" id="file"></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td align="right">
+                            <img align="left" class="gambar mb-3" src="#" alt="Pilih Gambar" id="gambar" onError="$(this).hide();">
                             <a href="view-lihat-menu.php" class="btn btn-secondary">Batal</a>
                             <input type="submit" name="TblSimpan" value="Simpan" class="btn btn-success">
                         </td>
@@ -44,3 +53,22 @@ nav("Tambah Menu");
         </center>
     </div>
 </body>
+
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#gambar').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+    }
+
+    $("#file").change(function() {
+        $('#gambar').show();
+        readURL(this);
+    });
+</script>
