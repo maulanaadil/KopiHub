@@ -41,7 +41,7 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
             <?php foreach ($data as $row) : ?>
                 <div class="col-md-4">
                     <div class="card mb-3">
-                    <img src="../menu/images/<?php echo $row["gambar_menu"];?>" class="card-img-top" width="100" height="400">
+                        <img src="../menu/images/<?php echo $row["gambar_menu"]; ?>" class="card-img-top" width="100" height="400">
                         <div class="card-body">
                             <h5 class="card-title"><?= $row["nama_menu"]; ?></h5>
                             <h5 class="card-title">Rp.<?= $row["harga"]; ?></h5>
