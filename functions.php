@@ -20,6 +20,8 @@ function getMenu()
   return $db->query($sql);
 }
 
+
+
 function nav($title)
 {
 ?>
