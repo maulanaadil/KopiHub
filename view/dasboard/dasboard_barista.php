@@ -24,7 +24,7 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
           <ul class="menu-content">
          
             <li>
-              <a href="menu.html"><i class="fa fa-cube"></i> <span>Menu</span> </a>
+            <a href="../menu/view-lihat-menu.php"><i class="fa fa-cube"></i> <span>Menu</span> </a>
             </li>
             <li><a href="pesanan.html"><i class="fa fa-shopping-basket"></i> <span>Pesanan</span></a></li>
             
