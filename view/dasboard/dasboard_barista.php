@@ -65,7 +65,6 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
   </section>
   </div>
 
-
 </body>
 
 </html>
