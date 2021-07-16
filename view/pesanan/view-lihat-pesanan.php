@@ -39,7 +39,7 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
 <div class="row">
     <?php foreach ($data as $barisdata) { ?>
         <div class="col-sm-6">
-        <div class="card" style="width: 30rem;">
+        <div class="card" style="width: 25rem;">
                 <div class="card-body">
                     <h4 class="rincian-pesanan" align="center">Rincian Pesanan</h4>
                     <hr class="bg-dark border-2 ">
