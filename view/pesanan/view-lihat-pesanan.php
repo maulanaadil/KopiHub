@@ -73,6 +73,8 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
                 </div>
             </div>
         </div>
+        <br>
+        <br>
     <?php
     }
     ?>
