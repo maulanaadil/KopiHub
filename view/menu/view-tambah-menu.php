@@ -43,7 +43,7 @@ nav("Tambah Menu");
                     <tr>
                         <td></td>
                         <td align="right">
-                            <img align="left" class="gambar mb-3" src="#" alt="Pilih Gambar" id="gambar" onError="$(this).hide();">
+                            <img align="left" class="gambar mb-3" src="default.jpg" alt="Pilih Gambar" id="gambar" onError="$(this).hide();">
                             <a href="view-lihat-menu.php" class="btn btn-secondary">Batal</a>
                             <input type="submit" name="TblSimpan" value="Simpan" class="btn btn-success">
                         </td>
