@@ -5,6 +5,11 @@ function dbConnect()
   return $db;
 }
 
+// Query Tambah Pesanan
+function addPesanan($noMeja, $statusPesanan ,$jumlahPesanan, $subTotal) {
+    return "INSERT INTO pesanan(no_meja, status_pesanan, jumlah_pesanan, sub_total) VALUES ('$noMeja', '$statusPesanan', '$jumlahPesanan', '$subTotal')";
+}
+
 // Query Lihat Pesanan
 function getPesanan()
 {
@@ -27,6 +32,14 @@ function getMenu()
   return $db->query($sql);
 }
 
+function getLaporanHarian()
+{
+  $db = dbConnect();
+  $sql = "SELECT id_pembayaran, total_harga, tanggal FROM pembayaran";
+  return $db->query($sql);
+}
+
+
 function nav($title)
 {
 ?>
@@ -37,9 +50,7 @@ function nav($title)
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../../style.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-    <title><?php echo $title ?></title>
+      <title><?php echo $title ?></title>
   </head>
 
   <nav class="navbar navbar-dark" style="background-color: #293949">
