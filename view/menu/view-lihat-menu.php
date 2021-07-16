@@ -14,7 +14,7 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
             </li>
             <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket"></i> <span>Pesanan</span></a></li>
             <li>
-                <a href="#"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
+                <a href="../login/logout.php"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
             </li>
         </ul>
     </menu>
@@ -43,12 +43,12 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
                     <div class="card mb-4" style="width: 16rem;">
                         <img src="../menu/images/<?php echo $row["gambar_menu"]; ?>" class="card-img-top" width="80" height="250">
                         <div class="card-body">
-                        <center>
-                            <h5 class="card-title"><?= $row["nama_menu"]; ?></h5>
-                            <h5 class="card-title">Rp.<?= $row["harga"]; ?></h5>
-                            <a href="view-ubah-menu.php" class="btn btn-primary">Ubah</a>
-                            <a href="#" class="btn btn-primary">Hapus</a>
-                        </center>
+                            <center>
+                                <h5 class="card-title"><?= $row["nama_menu"]; ?></h5>
+                                <h5 class="card-title">Rp.<?= $row["harga"]; ?></h5>
+                                <a href="view-ubah-menu.php" class="btn btn-primary">Ubah</a>
+                                <a href="#" class="btn btn-primary">Hapus</a>
+                            </center>
                         </div>
                     </div>
                 </div>

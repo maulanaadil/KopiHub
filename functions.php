@@ -13,6 +13,13 @@ function getPesanan()
   return $db->query($sql);
 }
 
+function getDataPesanan($no_pesanan)
+{
+  $db = dbConnect();
+  $sql = "SELECT * FROM pesanan WHERE no_pesanan = $no_pesanan";
+  return $db->query($sql);
+}
+
 function getMenu()
 {
   $db = dbConnect();
