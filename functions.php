@@ -20,6 +20,14 @@ function getMenu()
   return $db->query($sql);
 }
 
+function getLaporanHarian()
+{
+  $db = dbConnect();
+  $sql = "SELECT id_pembayaran, total_harga, tanggal FROM pembayaran";
+  return $db->query($sql);
+}
+
+
 function nav($title)
 {
 ?>
