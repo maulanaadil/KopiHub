@@ -15,7 +15,7 @@ nav("Tambah Menu");
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
 <body>
-    <div class="container mt-4">
+    <div class="container-fluid mt-4">
         <h1>Tambah Menu</h1>
         <center>
             <form action="tambah.php" method="post" class="mt-5" runat="server">
