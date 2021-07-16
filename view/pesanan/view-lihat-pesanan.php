@@ -22,82 +22,61 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
 </aside>
 
 <div class="container">
-    <div class="row mt-3">
-        <div class="col">
-            <h1>Pesanan</h1>
+<div class="row mt-3">
+    <div class="col">
+        <h1>Pesanan</h1>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col">
+        <div class="btn-tambah" style="margin-bottom: 20px">
+            <a href="view-tambah-pesanan.php" class="btn btn-success">Tambah</a>
         </div>
     </div>
+</div>
 
-    <div class="row mt-3">
-        <div class="col">
-            <div class="btn-tambah" style="margin-bottom: 20px">
-                <a href="view-tambah-pesanan.php" class="btn btn-success">Tambah</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <?php foreach ($data as $barisdata) { ?>
-            <div class="col-sm-5">
-                <div class="card" style="width: 400px;">
+<div class="row">
+    <?php foreach ($data as $barisdata) { ?>
+        <div class="col-sm-6">
+            <div class="card" style="width: 25rem; margin-bottom: 25px">
+                <div class="card-body">
+                    <h4 class="rincian-pesanan" align="center">Rincian Pesanan</h4>
+                    <hr class="bg-dark border-2 ">
                     <div class="card-body">
-                        <h4 class="rincian-pesanan" align="center">Rincian Pesanan</h4>
-                        <hr class="bg-dark border-2 ">
-                        <div class="card-body">
-                            <table class="table-sm" width="100%">
-                                <tr>
-                                    <td>
-                                        <h5>No Pesanan</h5>
-                                    </td>
-                                    <td>
-                                        <h5 align="right"><?php echo $barisdata["no_pesanan"] ?></h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5>No Meja</h5>
-                                    </td>
-                                    <td>
-                                        <h5 align="right"> <?php echo $barisdata["no_meja"] ?></h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5>Status Pesanan</h5>
-                                    </td>
-                                    <td>
-                                        <h5 align="right"><?php echo $barisdata["status_pesanan"] ?> </h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5>Jumlah Pesanan</h5>
-                                    </td>
-                                    <td>
-                                        <h5 align="right"><?php echo $barisdata["jumlah_pesanan"] ?></h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5>Sub Total</h5>
-                                    </td>
-                                    <td>
-                                        <h5 align="right"><?php echo $barisdata["sub_total"] ?></h5>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="btn-ubah" align="right">
-                            <a href="view-ubah-pesanan.php?no_pesanan=<?php echo $barisdata["no_pesanan"]; ?>" class="btn btn-primary">Ubah</a>
-                        </div>
+                        <table class="table-sm" width="100%">
+                            <tr>
+                                <td><h5>No Pesanan</h5></td>
+                                <td><h5 align="right"><?php echo $barisdata["no_pesanan"] ?></h5></td>
+                            </tr>
+                            <tr>
+                                <td><h5>No Meja</h5></td>
+                                <td><h5 align="right"> <?php echo $barisdata["no_meja"] ?></h5></td>
+                            </tr>
+                            <tr>
+                                <td><h5>Status Pesanan</h5></td>
+                                <td><h5 align="right"><?php echo $barisdata["status_pesanan"] ?> </h5></td>
+                            </tr>
+                            <tr>
+                                <td><h5>Jumlah Pesanan</h5></td>
+                                <td><h5 align="right"><?php echo $barisdata["jumlah_pesanan"] ?></h5></td>
+                            </tr>
+                            <tr>
+                                <td><h5>Sub Total</h5></td>
+                                <td><h5 align="right"><?php echo $barisdata["sub_total"] ?></h5></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="btn-ubah" align="right">
+                        <a href="view-ubah-pesanan.php?no_pesanan=<?php echo $barisdata["no_pesanan"]; ?>" class="btn btn-primary">Ubah</a>
                     </div>
                 </div>
             </div>
-        <?php
-        }
-        ?>
-    </div>
+        </div>
+    <?php
+    }
+    ?>
+</div>
 </div>
 </body>
-
 </html>
