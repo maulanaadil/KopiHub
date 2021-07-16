@@ -20,8 +20,6 @@ function getMenu()
   return $db->query($sql);
 }
 
-
-
 function nav($title)
 {
 ?>
@@ -37,11 +35,20 @@ function nav($title)
     <title><?php echo $title ?></title>
   </head>
 
-  <nav class="navbar navbar-dark" style="background-color: #293949">
+  <nav class="navbar navbar-dark fixed-top" style="background-color: #293949">
     <div class="container-fluid">
       <a class="navbar-brand">KopiHub</a>
     </div>
   </nav>
+<?php
+}
+
+function showError($message)
+{
+?>
+  <div style="background-color:#FAEBD7; padding:10px; border:1px solid red;" class="mt-3 ml-3 mr-3">
+    <?php echo $message ?>
+  </div>
 <?php
 }
 ?>

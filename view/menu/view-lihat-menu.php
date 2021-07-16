@@ -46,7 +46,6 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
                         <center>
                             <h5 class="card-title"><?= $row["nama_menu"]; ?></h5>
                             <h5 class="card-title">Rp.<?= $row["harga"]; ?></h5>
-                            
                             <a href="view-ubah-menu.php" class="btn btn-primary">Ubah</a>
                             <a href="#" class="btn btn-primary">Hapus</a>
                         </center>
