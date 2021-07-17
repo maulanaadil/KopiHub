@@ -12,7 +12,7 @@
         <table align="center" class="table-sm">
             <tr>
                 <td width="25%">No Meja</td>
-                <td width="25%"><input type="text" id="no_meja" name="noMeja" class="form-control"></td>
+                <td width="25%"><input type="text" id="no_meja" name="noMeja" class="form-control" required></td>
             </tr>
             <tr>
                 <td width="25%">Status Pesanan</td>

@@ -14,9 +14,9 @@ function addPesanan($noMeja, $statusPesanan, $jumlahPesanan, $subTotal)
 // Query Lihat Pesanan Khusus Dashboard Barista
 function getPesananBarista()
 {
-    $db = dbConnect();
-    $sql = "SELECT * FROM pesanan WHERE status_pesanan='belum'";
-    return $db->query($sql);
+  $db = dbConnect();
+  $sql = "SELECT * FROM pesanan WHERE status_pesanan='belum'";
+  return $db->query($sql);
 }
 
 // Query Lihat Pesanan
@@ -41,7 +41,7 @@ function getMenu()
   return $db->query($sql);
 }
 
-function getGambarMenu($id_menu)
+function getDataMenu($id_menu)
 {
   $db = dbConnect();
   $sql = "SELECT * FROM menu WHERE id_menu = $id_menu";
@@ -89,7 +89,7 @@ function nav($title)
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../../style.css">
 
-      <title><?php echo $title ?></title>
+    <title><?php echo $title ?></title>
   </head>
 
   <nav class="navbar navbar-dark sticky-top" style="background-color: #293949">

@@ -13,7 +13,7 @@ dbConnect();
     <?php
     if (isset($_GET['id_menu'])) {
         $id_menu = dbConnect()->escape_string($_GET['id_menu']);
-        $dataMenu = getGambarMenu($id_menu)->fetch_assoc();
+        $dataMenu = getDataMenu($id_menu)->fetch_assoc();
 
         if ($dataMenu["gambar_menu"] != "") {
             unlink("images/" . $dataMenu["gambar_menu"]);
