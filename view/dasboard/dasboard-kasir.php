@@ -24,7 +24,7 @@ $data = getmenu()->fetch_all(MYSQLI_ASSOC);
           <a href="../login/logout.php"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
         </li>
       </ul>
-    </menu>
+    </megitnu>
   </aside>
   <section class="jumbotron">
     <h1 class="display-4">Kasir</h1>
