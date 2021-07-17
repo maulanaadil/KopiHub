@@ -32,19 +32,19 @@ nav("Ubah Menu");
                 </tr>
                 <tr>
                     <td>Nama Menu</td>
-                    <td><input type="text" name="nama" class="form-control" required></td>
+                    <td><input type="text" name="nama" class="form-control" required value="<?= $data["nama_menu"]; ?>"></td>
                 </tr>
                 <tr>
                     <td>Harga</td>
-                    <td><input type="text" name="harga" class="form-control" required></td>
+                    <td><input type="text" name="harga" class="form-control" required value="<?= $data["harga"]; ?>"></td>
                 </tr>
                 <tr>
                     <td>Stok</td>
-                    <td><input type="number" name="stok" class="form-control" required></td>
+                    <td><input type="number" name="stok" class="form-control" required value="<?= $data["stok"]; ?>"></td>
                 </tr>
                 <tr>
                     <td>Gambar</td>
-                    <td><input type="file" name="gambar" class="form-control" id="file"></td>
+                    <td><input type="file" name="gambar" class="form-control" id="file" value="<?= $data["gambar_menu"]; ?>"></td>
                 </tr>
                 <tr>
                     <td></td>
