@@ -21,7 +21,6 @@ if (isset($_POST["TblSimpan"])) {
     } else
         $gambarbaru = "KopiHub Image" . date(' d-m-y ') . $gambar;
 
-
     // path folder gambar
     $path = "../images/" . $gambarbaru;
 

@@ -1,6 +1,6 @@
 <?php
 
-require ('../../../functions.php');
+require('../../../functions.php');
 
 
 $db = dbConnect();
@@ -16,25 +16,24 @@ if (isset($_POST["btnSubmit"])) {
         if (mysqli_query($db, $sql)) {
             if ($db->affected_rows > 0) {
                 nav("Tambah Pesanan Berhasil");
-                ?>
+?>
                 <h4 align="center">Data Successfully Added.<br>
-                <a href="../view-lihat-pesanan.php">
-                    <button class="btn btn-success" align="center">View Pesanan</button>
-                </a>
-            <?php
+                    <a href="../view-lihat-pesanan.php">
+                        <button class="btn btn-success" align="center">View Pesanan</button>
+                    </a>
+                <?php
             } else {
                 nav("Tambah Pesanan Gagal");
                 ?>
-                <h4 align="center">Data Added Failed.<br>
-                <a href="javascript:history.back()">
-                    <button class="btn btn-danger">Back</button>
-                </a>
-                <?php
+                    <h4 align="center">Data Added Failed.<br>
+                        <a href="javascript:history.back()">
+                            <button class="btn btn-danger">Back</button>
+                        </a>
+        <?php
             }
         } else {
             "ERROR GAMASUK";
         }
     } else {
-        echo "Failed Connection" . (DEVELOPMENT ? " : " . $db->connect_error : "") . "<br>";
     }
 }
