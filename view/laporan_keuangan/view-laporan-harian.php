@@ -1,7 +1,7 @@
 <?php
 require('../../functions.php');
 
-nav("Laporan");
+nav("Laporan harian");
 dbConnect();
 $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
 ?>
@@ -12,7 +12,21 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laporan pendapatan harian</title>
 </head>
-<body>
+<body><aside class="sidebar">
+    <menu>
+      <ul class="menu-content">
+
+        <li>
+          <a href="view-laporan-harian.php"><i class="fa fa-cube"></i> <span>Laporan Harian</span> </a>
+        </li>
+        <li><a href="#"><i class="fa fa-shopping-basket"></i> <span>Laporan Mingguan</span></a></li>
+
+        <li>
+          <a href="#"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
+        </li>
+      </ul>
+    </menu>
+  </aside>
         <?php
             $total = getTotalHarian()->fetch_all(MYSQLI_ASSOC);
             foreach($total as $total_pendapatan): ?>
