@@ -30,7 +30,7 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
 
         <div class="row mt-3">
             <div class="col">
-                <h1>Menu</h1>
+                <h1 class="display-4">Menu</h1>
             </div>
         </div>
 
@@ -57,7 +57,7 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
                             <center>
                                 <h5 class="card-title"><?= $row["nama_menu"]; ?></h5>
                                 <h5 class="card-title">Rp.<?= $row["harga"]; ?></h5>
-                                <a href="view-ubah-menu.php" class="btn btn-primary">Ubah</a>
+                                <a href="view-ubah-menu.php?id_menu=<?php echo $row['id_menu']; ?>" class="btn btn-primary">Ubah</a>
                                 <a href="view-hapus-menu.php?id_menu=<?php echo $row['id_menu']; ?>" class="btn btn-primary">Hapus</a>
 
                             </center>

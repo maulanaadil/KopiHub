@@ -19,16 +19,15 @@ $data = getmenu()->fetch_all(MYSQLI_ASSOC);
     <menu>
       <ul class="menu-content">
         <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket"></i> <span>Pesanan</span></a></li>
-        <li><a href="#"><i class="fa fa-shopping-basket"></i> <span>Laporan</span></a></li>
+        <li><a href="../laporan_keuangan/laporan.php"><i class="fa fa-shopping-basket"></i> <span>Laporan</span></a></li>
         <li>
           <a href="../login/logout.php"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
         </li>
       </ul>
-    </menu>
+    </megitnu>
   </aside>
   <section class="jumbotron">
     <h1 class="display-4">Kasir</h1>
-
   </section>
 
 

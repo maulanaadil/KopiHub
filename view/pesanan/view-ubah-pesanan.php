@@ -31,9 +31,9 @@ $data = getDataPesanan($no_pesanan)->fetch_assoc();
                     <td>Status Pesanan</td>
                     <td>
                         <select class="form-select" id="status_pesanan">
-                            <option value="">Pilih Kondisi</option>
-                            <option value="belum">Belum</option>
-                            <option value="selesai">Selesai</option>
+                            <option value="" hidden><?= $data["status_pesanan"] ?></option>
+                            <option value="belum">belum</option>
+                            <option value="selesai">selesai</option>
                         </select>
                     </td>
                 </tr>
