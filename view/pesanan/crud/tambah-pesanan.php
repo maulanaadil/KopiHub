@@ -11,6 +11,7 @@ if (isset($_POST["btnSubmit"])) {
         $jumlahPemesanan = $db->escape_string($_POST["jumlah_pemesanan"]);
         $subTotal = $db->escape_string($_POST["subTotal"]);
 
+
         $sql = addPesanan($noMeja, $statusPesanan, $jumlahPemesanan, $subTotal);
         if (mysqli_query($db, $sql)) {
             if ($db->affected_rows > 0) {

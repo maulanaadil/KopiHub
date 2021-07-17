@@ -3,7 +3,6 @@
 <html>
 <head>
      <?php nav("Tambah Pesanan"); ?>
-
 </head>
 <body>
 <form method="post" action="./crud/tambah-pesanan.php">
@@ -24,12 +23,34 @@
             </td>
         </tr>
         <tr>
-            <td width="25%">Jumlah Pemesanan</td>
-            <td><input type="number" id="jumlah_pemesanan" name="jumlah_pemesanan" class="form-control"></td>
+        <tr>
+            <td colspan="2" align="center">Nama Menu</td>
+        </tr>
+        <?php
+        dbConnect();
+        $data = getMenu()->fetch_all(MYSQLI_ASSOC);
+        foreach ($data as $row) {
+            ?>
+            <tr>
+                <td><?php echo $row["nama_menu"];?></td>
+                <td>
+                    <input type="number" class="qty_sementara" onchange="add()">
+                </td>
+            </tr>
+            <tr>
+                <td><input type="number" class="subtotal_sementara" readonly value="<?= $row["harga"]?>" hidden></td>
+            </tr>
+            <?php
+        }
+        ?>
         </tr>
         <tr>
-            <td width="25%">SubTotal</td>
-            <td><input type="number" name="subTotal" id="sub_total" class="form-control"></td>
+            <td>Jumlah Pemesanan</td>
+            <td><input type="number" id="jumlah_pemesanan" name="jumlah_pemesanan" class="form-control" readonly></td>
+        </tr>
+        <tr>
+            <td>Sub Total</td>
+            <td><input type="number" id="subTotal" name="subTotal" class="form-control" readonly></td>
         </tr>
         <tr>
             <td>
@@ -42,5 +63,21 @@
     </table>
 </form>
 </body>
+<script>
+    function add() {
+         total= 0;
+         subTotal = 0;
+         sum=document.getElementsByClassName("qty_sementara");
+         harga=document.getElementsByClassName("subtotal_sementara");
+        for(a=0;a<sum.length;a++)
+        {
+            console.log(sum[a].value);
+            total += parseInt(sum[a].value || 0);
+            subTotal = parseInt(harga[a].value || 0) * total;
+        }
+        document.getElementById("jumlah_pemesanan").value = total;
+        document.getElementById("subTotal").value = subTotal;
+    }
+</script>
 </html>
 
