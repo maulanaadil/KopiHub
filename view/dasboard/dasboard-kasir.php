@@ -24,7 +24,6 @@ $data = getmenu()->fetch_all(MYSQLI_ASSOC);
   </aside>
   <section class="jumbotron">
     <h1 class="display-4">Kasir</h1>
-
   </section>
 
 
