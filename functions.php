@@ -40,6 +40,13 @@ function getLaporanHarian()
   return $db->query($sql);
 }
 
+function getTotalHarian()
+{
+  $db = dbConnect();
+  $sql = "SELECT tanggal, SUM(total_harga) FROM pembayaran GROUP BY tanggal";
+  return $result = $db->query($sql);
+}
+
 function getHapusMenu($id_menu)
 {
   $db = dbConnect();

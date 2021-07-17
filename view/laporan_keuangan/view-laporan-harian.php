@@ -13,8 +13,13 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
     <title>Laporan pendapatan harian</title>
 </head>
 <body>
-    <div class="row mt-3">
-        <h3>Laporan Pendapatan Harian</h3>
+        <?php
+            $total = getTotalHarian()->fetch_all(MYSQLI_ASSOC);
+            foreach($total as $total_pendapatan): ?>
+            <div class="alert alert-success" role="alert">
+                Pendapatan Pada Tanggal <?php echo $total_pendapatan['tanggal']; ?>
+            </div>
+        <?php endforeach ?>
     </div>
     <div class="row mt-3">
         <center>
@@ -36,10 +41,16 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
         <?php endforeach ?>
         </tbody>
         </table>
+        <?php 
+            $total = getTotalHarian()->fetch_all(MYSQLI_ASSOC);
+
+            foreach($total as $total_pendapatan): ?>
         <div class="row mt-3">
-            <h6>Total Pendapatan: </h6>
+            <h6>Total Pendapatan : Rp.<?php echo $total_pendapatan['SUM(total_harga)']; ?> </h6>
         </div>
+        
         </center>
+        <?php endforeach ?>
     </div>
 </body>
 </html>
