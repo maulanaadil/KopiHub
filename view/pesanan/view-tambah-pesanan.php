@@ -38,7 +38,7 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="number" class="subtotal_sementara" id="subtotal_sementara" readonly value="<?= $row["harga"]?>"></td>
+                <td><input type="number" class="subtotal_sementara" id="subtotal_sementara" readonly hidden value="<?= $row["harga"]?>"></td>
             </tr>
             <?php
         }
@@ -75,7 +75,6 @@
             console.log(harga[a].value);
             total += parseInt(sum[a].value || 0);
             subTotal += parseInt(sum[a].value || 0) * parseInt(harga[a].value || 0);
-            console.log(subTotal);
         }
         document.getElementById("jumlah_pemesanan").value = total;
         document.getElementById("subTotal").value = subTotal;
