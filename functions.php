@@ -40,6 +40,7 @@ function getGambarMenu($id_menu)
   return $db->query($sql);
 }
 
+
 function getLaporanHarian()
 {
   $db = dbConnect();

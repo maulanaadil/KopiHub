@@ -25,7 +25,7 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
                          <input type="date" id="birthday" name="birthday"></form></td>
                     </tr>
                     <tr>
-                    <td><input type="text" name="nama" class="form-control" required></td>
+                    <td><input type="text" name="nama" class="form-control" placeholder="input data" ></td>
                     </tr>
                    
                         <td></td>
@@ -41,7 +41,7 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
                          <input type="date" id="birthday" name="birthday"></form></td>
                     </tr>
                     <tr>
-                    <td><input type="text" name="nama" class="form-control" required></td>
+                    <td><input type="text" name="nama" class="form-control" placeholder="input data" ></td>
                     </tr>
                    
                         <td></td>
@@ -56,7 +56,7 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
                          <input type="date" id="birthday" name="birthday"></form></td>
                     </tr>
                     <tr>
-                    <td><input type="text" name="nama" class="form-control" required></td>
+                    <td><input type="text" name="nama" class="form-control" placeholder="input data" ></td>
                     </tr>
                    
                         <td></td>
@@ -71,7 +71,7 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
                          <input type="date" id="birthday" name="birthday"></form></td>
                     </tr>
                     <tr>
-                    <td><input type="text" name="nama" class="form-control" required></td>
+                    <td><input type="text" name="nama" class="form-control" placeholder="input data" ></td>
                     </tr>
                    
                         <td></td>
@@ -85,7 +85,7 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
                          <input type="date" id="birthday" name="birthday"></form></td>
                     </tr>
                     <tr>
-                    <td><input type="text" name="nama" class="form-control" required></td>
+                    <td><input type="text" name="nama" class="form-control" placeholder="input data" ></td>
                     </tr>
                    
                         <td></td>
@@ -100,7 +100,7 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
                          <input type="date" id="birthday" name="birthday"></form></td>
                     </tr>
                     <tr>
-                    <td><input type="text" name="nama" class="form-control" required></td>
+                    <td><input type="text" name="nama" class="form-control" placeholder="input data" ></td>
                     </tr>
                    
                         <td></td>
@@ -115,7 +115,7 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
                          <input type="date" id="birthday" name="birthday"></form></td>
                     </tr>
                     <tr>
-                    <td><input type="text" name="nama" class="form-control" required></td>
+                    <td><input type="text" name="nama" class="form-control" placeholder="input data" ></td>
                     </tr>
                    
                         <td></td>
