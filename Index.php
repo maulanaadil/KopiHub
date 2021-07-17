@@ -11,7 +11,7 @@
 
     <div class="container">
         <center>
-            <img src="view/menu/images/default.jpg" style="width: 80px;" class="mt-5">
+            <img src="https://cdn.discordapp.com/attachments/859080381517266944/865996965488754728/WhatsApp_Image_2021-07-03_at_12.23.31.jpeg" style="width: 10rem;" class="mt-5">
             <h1>Kopi Hub</h1>
             <div class="card bg-white mt-4" style="width: 45%;">
                 <div class=" card-body">
