@@ -1,5 +1,9 @@
 <?php
 require('../../functions.php');
+// session_start();
+// if (!isset($_SESSION["id_pegawai"])) {
+//     header("Location: ../../index.php?error=4");
+// }
 
 nav("Lihat Pesanan");
 
@@ -24,7 +28,7 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
 <div class="container">
     <div class="row mt-3">
         <div class="col">
-            <h1>Pesanan</h1>
+            <h1 class="display-4">Pesanan</h1>
         </div>
     </div>
 

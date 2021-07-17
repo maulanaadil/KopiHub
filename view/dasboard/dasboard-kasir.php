@@ -1,5 +1,9 @@
 <?php
 require('../../functions.php');
+// session_start();
+// if (!isset($_SESSION["id_pegawai"])) {
+//     header("Location: ../../index.php?error=4");
+// }
 
 nav("Lihat Pesanan");
 
@@ -24,7 +28,6 @@ $data = getmenu()->fetch_all(MYSQLI_ASSOC);
   </aside>
   <section class="jumbotron">
     <h1 class="display-4">Kasir</h1>
-
   </section>
 
 

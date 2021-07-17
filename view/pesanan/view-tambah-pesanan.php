@@ -32,13 +32,13 @@
         foreach ($data as $row) {
             ?>
             <tr>
-                <td><?php echo $row["nama_menu"];?></td>
+                <td><?= $row["nama_menu"];?></td>
                 <td>
                     <input type="number" class="qty_sementara" onchange="add()">
                 </td>
             </tr>
             <tr>
-                <td><input type="number" class="subtotal_sementara" readonly value="<?= $row["harga"]?>" hidden></td>
+                <td><input type="number" class="subtotal_sementara" id="subtotal_sementara" readonly value="<?= $row["harga"]?>" hidden></td>
             </tr>
             <?php
         }

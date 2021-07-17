@@ -53,13 +53,11 @@ function getHapusMenu($id_menu)
   $sql = "DELETE FROM menu WHERE id_menu = '$id_menu'";
   return $delete = $db->query($sql);
 
-  if($delete)
-  {
+  if ($delete) {
     mysqli_close($db);
     header("location: view-lihat-menu.php");
     exit;
-  }else
-  {
+  } else {
     echo "Penghapusan menu gagal";
   }
 }

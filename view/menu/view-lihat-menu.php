@@ -1,11 +1,16 @@
 <?php
 require('../../functions.php');
+// session_start();
+// if (!isset($_SESSION["id_pegawai"])) {
+//     header("Location: ../../index.php?error=4");
+// }
 
 nav("Lihat Menu");
 
 dbConnect();
 $data = getMenu()->fetch_all(MYSQLI_ASSOC);
 ?>
+
 <aside class="sidebar">
     <menu>
         <ul class="menu-content">
@@ -25,7 +30,7 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
 
         <div class="row mt-3">
             <div class="col">
-                <h1>Menu</h1>
+                <h1 class="display-4">Menu</h1>
             </div>
         </div>
 
@@ -48,7 +53,7 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
                                 <h5 class="card-title">Rp.<?= $row["harga"]; ?></h5>
                                 <a href="view-ubah-menu.php" class="btn btn-primary">Ubah</a>
                                 <a href="view-hapus-menu.php?id_menu=<?php echo $row['id_menu']; ?>" class="btn btn-primary">Hapus</a>
-                                
+
                             </center>
                         </div>
                     </div>
