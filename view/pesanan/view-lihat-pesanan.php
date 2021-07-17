@@ -1,9 +1,16 @@
 <?php
 require('../../functions.php');
+<<<<<<< HEAD
  session_start();
  if (!isset($_SESSION["id_pegawai"])) {
      header("Location: ../../index.php?error=4");
  }
+=======
+session_start();
+if (!isset($_SESSION["id_pegawai"])) {
+    header("Location: ../../index.php?error=4");
+}
+>>>>>>> ac6acdf469230b1cf263865517aff1643c783a2b
 
 nav("Lihat Pesanan");
 
