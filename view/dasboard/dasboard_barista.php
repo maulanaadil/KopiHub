@@ -56,7 +56,7 @@ $data = getPesananBarista()->fetch_all(MYSQLI_ASSOC);
 
     </div>
 </section>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     function updateData() {
         let status_pesanan = document.getElementById("status_pesanan").val();
