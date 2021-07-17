@@ -1,7 +1,7 @@
 <?php
 require('../../functions.php');
 
-nav("Laporan harian");
+nav("Laporan");
 dbConnect();
 $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
 ?>
