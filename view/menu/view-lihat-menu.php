@@ -46,7 +46,13 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
             <?php foreach ($data as $row) : ?>
                 <div class="col-md-4">
                     <div class="card mb-4" style="width: 16rem;">
-                        <img src="../menu/images/<?php echo $row["gambar_menu"]; ?>" class="card-img-top" width="80" height="250">
+                        <?php
+                        if ($row["gambar_menu"] == "") {
+                            $namagambar = "default.jpg";
+                        } else
+                            $namagambar = $row["gambar_menu"];
+                        ?>
+                        <img src="../menu/images/<?php echo $namagambar; ?>" class="card-img-top" width="80" height="250">
                         <div class="card-body">
                             <center>
                                 <h5 class="card-title"><?= $row["nama_menu"]; ?></h5>

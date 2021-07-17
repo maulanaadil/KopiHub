@@ -33,6 +33,13 @@ function getMenu()
   return $db->query($sql);
 }
 
+function getGambarMenu($id_menu)
+{
+  $db = dbConnect();
+  $sql = "SELECT * FROM menu WHERE id_menu = $id_menu";
+  return $db->query($sql);
+}
+
 function getLaporanHarian()
 {
   $db = dbConnect();
@@ -43,6 +50,7 @@ function getLaporanHarian()
 function getHapusMenu($id_menu)
 {
   $db = dbConnect();
+
   $sql = "DELETE FROM menu WHERE id_menu = '$id_menu'";
   return $delete = $db->query($sql);
 
