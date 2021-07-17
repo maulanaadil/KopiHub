@@ -44,7 +44,7 @@ function getMenu()
 function getDataMenu($id_menu)
 {
   $db = dbConnect();
-  $sql = "SELECT * FROM menu WHERE id_menu = $id_menu";
+  $sql = "SELECT * FROM menu WHERE id_menu = '$id_menu'";
   return $db->query($sql);
 }
 

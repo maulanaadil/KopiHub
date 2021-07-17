@@ -8,7 +8,6 @@ require('../../functions.php');
 dbConnect();
 
 $id_menu = $_GET['id_menu'];
-echo $id_menu;
 $data = getDataMenu($id_menu)->fetch_assoc();
 
 nav("Ubah Menu");
