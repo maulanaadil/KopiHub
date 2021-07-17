@@ -1,9 +1,9 @@
 <?php
 require('../../functions.php');
-// session_start();
-// if (!isset($_SESSION["id_pegawai"])) {
-//     header("Location: ../../index.php?error=4");
-// }
+session_start();
+if (!isset($_SESSION["id_pegawai"])) {
+    header("Location: ../../index.php?error=4");
+}
 
 $db = dbConnect();
 $no_pesanan = $_GET["no_pesanan"];
