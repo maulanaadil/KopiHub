@@ -16,7 +16,7 @@ nav("Tambah Menu");
 
 <body>
     <div class="container-fluid mt-4">
-        <h1>Tambah Menu</h1>
+        <h1>Ubah Menu</h1>
         <center>
             <form action="tambah.php" method="post" class="mt-5" runat="server">
                 <table class="table-sm">
