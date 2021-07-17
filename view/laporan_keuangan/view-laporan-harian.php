@@ -19,10 +19,10 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
         <li>
           <a href="view-laporan-harian.php"><i class="fa fa-cube"></i> <span>Laporan Harian</span> </a>
         </li>
-        <li><a href="#"><i class="fa fa-shopping-basket"></i> <span>Laporan Mingguan</span></a></li>
+        <li><a href="view-laporan-mingguna.php"><i class="fa fa-shopping-basket"></i> <span>Laporan Mingguan</span></a></li>
 
         <li>
-          <a href="#"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
+          <a href="../login/logout.php"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
         </li>
       </ul>
     </menu>
