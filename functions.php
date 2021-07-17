@@ -40,6 +40,22 @@ function getLaporanHarian()
   return $db->query($sql);
 }
 
+function getHapusMenu($id_menu)
+{
+  $db = dbConnect();
+  $sql = "DELETE FROM menu WHERE id_menu = '$id_menu'";
+  return $delete = $db->query($sql);
+
+  if($delete)
+  {
+    mysqli_close($db);
+    header("location: view-lihat-menu.php");
+    exit;
+  }else
+  {
+    echo "Penghapusan menu gagal";
+  }
+}
 
 function nav($title)
 {
