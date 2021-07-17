@@ -5,6 +5,11 @@ function dbConnect()
   return $db;
 }
 
+// Query update Pesanan
+function updatePesanan($no_pesanan, $status_pesanan) {
+    return "UPDATE pesanan SET pesanan.status_pesanan= '$status_pesanan' WHERE pesanan.no_pesanan = '$no_pesanan'";
+}
+
 // Query Tambah Pesanan
 function addPesanan($noMeja, $statusPesanan, $jumlahPesanan, $subTotal)
 {

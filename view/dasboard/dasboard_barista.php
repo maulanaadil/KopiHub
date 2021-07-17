@@ -38,14 +38,15 @@ $data = getPesananBarista()->fetch_all(MYSQLI_ASSOC);
                         <div class="card-body">
                             <h5 class="card-title" align="center">No Pesanan <?= $row["no_pesanan"] ?></h5>
                             <hr>
+                            <input type="text" id="no_pesanann" value="<?= $row["no_pesanan"] ?>" hidden readonly>
                             <p class="card-text">Status Pesanan :</p>
-                            <select class="form-select" id="status_pesanan">
+                            <select class="form-select" id="status_pesanan" name="status_pesanan">
                                 <option value="" hidden><?= $row["status_pesanan"] ?></option>
                                 <option value="belum">belum</option>
                                 <option value="selesai">selesai</option>
                             </select>
                             <div class="btn-submit" align="right" style="margin-top: 20px">
-                                <button type="submit" class="btn btn-primary" name="btnSubmit">Submit</button>
+                                <a class="btn btn-primary" href="#=<?= $row["no_pesanan"]; ?>">Submit</a>
                             </div>
                         </div>
                     </div>
