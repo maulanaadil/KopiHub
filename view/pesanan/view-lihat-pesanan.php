@@ -24,7 +24,7 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
 <div class="container">
     <div class="row mt-3">
         <div class="col">
-            <h1>Pesanan</h1>
+            <h1 class="display-4">Pesanan</h1>
         </div>
     </div>
 
