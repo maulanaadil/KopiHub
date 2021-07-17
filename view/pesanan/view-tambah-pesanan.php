@@ -73,8 +73,9 @@
         harga = document.getElementsByClassName("subtotal_sementara");
         for (a = 0; a < sum.length; a++) {
             console.log(sum[a].value);
+            console.log(harga[a].value);
             total += parseInt(sum[a].value || 0);
-            subTotal = parseInt(harga[a].value || 0) * total;
+            subTotal += parseInt(sum[a].value || 0) * parseInt(harga[a].value || 0);
         }
         document.getElementById("jumlah_pemesanan").value = total;
         document.getElementById("subTotal").value = subTotal;
