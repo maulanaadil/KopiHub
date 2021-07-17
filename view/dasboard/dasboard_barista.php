@@ -1,9 +1,9 @@
 <?php
 require('../../functions.php');
-// session_start();
-// if (!isset($_SESSION["id_pegawai"])) {
-//     header("Location: ../../index.php?error=4");
-// }
+session_start();
+if (!isset($_SESSION["id_pegawai"])) {
+    header("Location: ../../index.php?error=4");
+}
 
 nav("Barista");
 
@@ -33,25 +33,24 @@ $data = getPesananBarista()->fetch_all(MYSQLI_ASSOC);
     <div class="row px-4">
 
         <?php foreach ($data as $row) { ?>
-                <div class="col-sm-6">
-                    <div class="card" style="width: 18rem; margin-top: 20px">
-                        <div class="card-body">
-                            <h5 class="card-title" align="center">No Pesanan <?= $row["no_pesanan"] ?></h5>
-                            <hr>
-                            <input type="text" id="no_pesanann" value="<?= $row["no_pesanan"] ?>" hidden readonly>
-                            <p class="card-text">Status Pesanan :</p>
-                            <select class="form-select" id="status_pesanan" name="status_pesanan">
-                                <option value="" hidden><?= $row["status_pesanan"] ?></option>
-                                <option value="belum">belum</option>
-                                <option value="selesai">selesai</option>
-                            </select>
-                            <div class="btn-submit" align="right" style="margin-top: 20px">
-                                <a class="btn btn-primary" href="#=<?= $row["no_pesanan"]; ?>">Submit</a>
-                            </div>
+            <div class="col-sm-6">
+                <div class="card" style="width: 18rem; margin-top: 20px">
+                    <div class="card-body">
+                        <h5 class="card-title" align="center">No Pesanan <?= $row["no_pesanan"] ?></h5>
+                        <hr>
+                        <p class="card-text">Status Pesanan :</p>
+                        <select class="form-select" id="status_pesanan">
+                            <option value="" hidden><?= $row["status_pesanan"] ?></option>
+                            <option value="belum">belum</option>
+                            <option value="selesai">selesai</option>
+                        </select>
+                        <div class="btn-submit" align="right" style="margin-top: 20px">
+                            <button type="submit" class="btn btn-primary" name="btnSubmit">Submit</button>
                         </div>
                     </div>
                 </div>
-            <?php
+            </div>
+        <?php
         }
         ?>
 

@@ -17,7 +17,7 @@ if ($db->connect_errno == 0) {
             $data = $res->fetch_assoc();
 
             session_start();
-            $_SESSION["userid"] = $data["id_pegawai"];
+            $_SESSION["id_pegawai"] = $data["id_pegawai"];
             $_SESSION["nama"] = $data["nama"];
             $_SESSION["jabatan"] = $data["jabatan"];
 
