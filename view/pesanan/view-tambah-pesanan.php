@@ -57,7 +57,7 @@
             </td>
             <td>
                 <input type="reset" value="Reset" class="btn btn-danger">
-                <input type="submit" value="Submit" class="btn btn-success" name="btnSubmit">
+                <input type="submit" value="Submit" class="btn btn-success" name="btnSubmit" onclick="Alert">
             </td>
         </tr>
     </table>
