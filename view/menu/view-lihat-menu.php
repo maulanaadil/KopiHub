@@ -1,11 +1,16 @@
 <?php
 require('../../functions.php');
+// session_start();
+// if (!isset($_SESSION["id_pegawai"])) {
+//     header("Location: ../../index.php?error=4");
+// }
 
 nav("Lihat Menu");
 
 dbConnect();
 $data = getMenu()->fetch_all(MYSQLI_ASSOC);
 ?>
+
 <aside class="sidebar">
     <menu>
         <ul class="menu-content">
