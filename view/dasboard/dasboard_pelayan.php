@@ -16,34 +16,20 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
 
 <body>
     <aside class="sidebar">
-        <menu>
-            <ul class="menu-content">
-
-                <li>
-                    <a href="../menu/view-lihat-menu.php"><i class="fa fa-cube"></i> <span>Menu</span> </a>
-                </li>
-                <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket"></i> <span>Pesanan</span></a></li>
-
-                <li>
-                    <a href="../login/logout.php"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
-                </li>
-            </ul>
-        </menu>
-    </aside>
-    <section class="jumbotron">
-        <h1 class="display-4">Pesanan</h1>
-        <hr>
         <div class="row mt-3">
-            <div class="col">
+            <div class="col" style="color: white">
                 <h1>Pesanan</h1>
             </div>
         </div>
-
-        <div class="row mt-3">
-            <div class="col">
-            </div>
-        </div>
-
+        <menu>
+        <ul class="menu-content">
+            <li>
+                <a href="../login/logout.php"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
+            </li>
+        </ul>
+        </menu>
+    </aside>
+    <section class="jumbotron">
         <div class="row">
             <?php foreach ($data as $barisdata) { ?>
                 <div class="col-sm-6">

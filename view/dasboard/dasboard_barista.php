@@ -11,6 +11,7 @@ dbConnect();
 $data = getPesananBarista()->fetch_all(MYSQLI_ASSOC);
 ?>
 
+<body>
 <aside class="sidebar">
     <menu>
         <ul class="menu-content">
@@ -37,15 +38,16 @@ $data = getPesananBarista()->fetch_all(MYSQLI_ASSOC);
                 <div class="card" style="width: 18rem; margin-top: 20px">
                     <div class="card-body">
                         <h5 class="card-title" align="center">No Pesanan <?= $row["no_pesanan"] ?></h5>
+                        <input type="text" name="no_pesanan" value="<?= $row["no_pesanan"]?>" hidden readonly >
                         <hr>
                         <p class="card-text">Status Pesanan :</p>
-                        <select class="form-select" id="status_pesanan">
+                        <select class="form-select" id="status_pesanan" name="status_pesanan">
                             <option value="" hidden><?= $row["status_pesanan"] ?></option>
                             <option value="belum">belum</option>
                             <option value="selesai">selesai</option>
                         </select>
                         <div class="btn-submit" align="right" style="margin-top: 20px">
-                            <button type="submit" class="btn btn-primary" name="btnSubmit">Submit</button>
+                            <a href="crud/update-dasboard-barista.php?no_pesanan=<?= $row["no_pesanan"]; ?>" class="btn btn-primary" id="btn_submit">Submit</a>
                         </div>
                     </div>
                 </div>
@@ -53,13 +55,6 @@ $data = getPesananBarista()->fetch_all(MYSQLI_ASSOC);
         <?php
         }
         ?>
-
     </div>
 </section>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-    function updateData() {
-        let status_pesanan = document.getElementById("status_pesanan").val();
-
-    }
-</script>
+</body>
