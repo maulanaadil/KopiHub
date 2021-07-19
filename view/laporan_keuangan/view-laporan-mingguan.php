@@ -10,267 +10,120 @@ dbConnect();
 $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
 ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan pendapatan harian</title>
-</head>
-
-HARI KE 2
-<form action="tambah.php" method="post" class="mt-5" runat="server">
-    <table class="table-sm">
-        <tr>
-            <td width="50%">
-                <form action="/action_page.php">
-                    <input type="date" id="birthday" name="birthday"></form>
-            </td>
-        </tr>
-        <tr>
-            <td><input type="text" name="nama" class="form-control" placeholder="input data"></td>
-        </tr>
-
-        <td></td>
-        </tr>
-    </table>
-</form>
-HARI KE 3
-<form action="tambah.php" method="post" class="mt-5" runat="server">
-    <table class="table-sm">
-        <tr>
-            <td width="50%">
-                <form action="/action_page.php">
-                    <input type="date" id="birthday" name="birthday"></form>
-            </td>
-        </tr>
-        <tr>
-            <td><input type="text" name="nama" class="form-control" placeholder="input data"></td>
-        </tr>
-
-        <td></td>
-        </tr>
-    </table>
-</form>
-HARI KE 4
-<form action="tambah.php" method="post" class="mt-5" runat="server">
-    <table class="table-sm">
-        <tr>
-            <td width="50%">
-                <form action="/action_page.php">
-                    <input type="date" id="birthday" name="birthday"></form>
-            </td>
-        </tr>
-        <tr>
-            <td><input type="text" name="nama" class="form-control" placeholder="input data"></td>
-        </tr>
-
-        <td></td>
-        </tr>
-    </table>
-</form>HARI KE 5
-<form action="tambah.php" method="post" class="mt-5" runat="server">
-    <table class="table-sm">
-        <tr>
-            <td width="50%">
-                <form action="/action_page.php">
-                    <input type="date" id="birthday" name="birthday"></form>
-            </td>
-        </tr>
-        <tr>
-            <td><input type="text" name="nama" class="form-control" placeholder="input data"></td>
-        </tr>
-
-        <td></td>
-        </tr>
-    </table>
-</form>
-HARI KE 6
-<form action="tambah.php" method="post" class="mt-5" runat="server">
-    <table class="table-sm">
-        <tr>
-            <td width="50%">
-                <form action="/action_page.php">
-                    <input type="date" id="birthday" name="birthday"></form>
-            </td>
-        </tr>
-        <tr>
-            <td><input type="text" name="nama" class="form-control" placeholder="input data"></td>
-        </tr>
-
-        <td></td>
-        </tr>
-    </table>
-</form>
-HARI KE 7
-<form action="tambah.php" method="post" class="mt-5" runat="server">
-    <table class="table-sm">
-        <tr>
-            <td width="50%">
-                <form action="/action_page.php">
-                    <input type="date" id="birthday" name="birthday"></form>
-            </td>
-        </tr>
-        <tr>
-            <td><input type="text" name="nama" class="form-control" placeholder="input data"></td>
-        </tr>
-
-        <td></td>
-        </tr>
-    </table>
-</form>
-<td align="right">
-    <a href="view-lihat-menu.php" class="btn btn-secondary">Batal</a>
-    <input type="submit" name="TblSimpan" value="Simpan" class="btn btn-success">
-</td>
-<HR>
-
-</center>
-
-
-</body>
-<<<<<<< HEAD
-</html><?php
-require('../../functions.php');
-
-nav("Laporan harian");
-dbConnect();
-$data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
-?>
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan pendapatan harian</title>
-</head>
 <body>
-     <div class="row mt-3">
-     <h3>Laporan Pendapatan Harian</h3>
-     </div>
-     <center>
-          HARI KE 1
-            <form action="tambah.php" method="post" class="mt-5" runat="server">
-                <table class="table-sm">
-                    <tr>
-                        <td width="50%"><form action="/action_page.php">
-                         <input type="date" id="birthday" name="birthday"></form></td>
-                    </tr>
-                    <tr>
-                    <td><input type="text" name="nama" class="form-control" placeholder="input data" ></td>
-                    </tr>
-                   
-                        <td></td>
-                    </tr>
-                </table>
-            </form>
+<aside class="sidebar">
+        <menu>
+            <ul class="menu-content">
 
-            HARI KE 2
-            <form action="tambah.php" method="post" class="mt-5" runat="server">
-                <table class="table-sm">
-                    <tr>
-                        <td width="50%"><form action="/action_page.php">
-                         <input type="date" id="birthday" name="birthday"></form></td>
-                    </tr>
-                    <tr>
-                    <td><input type="text" name="nama" class="form-control" placeholder="input data" ></td>
-                    </tr>
-                   
-                        <td></td>
-                    </tr>
-                </table>
-            </form>
-            HARI KE 3
-            <form action="tambah.php" method="post" class="mt-5" runat="server">
-                <table class="table-sm">
-                    <tr>
-                        <td width="50%"><form action="/action_page.php">
-                         <input type="date" id="birthday" name="birthday"></form></td>
-                    </tr>
-                    <tr>
-                    <td><input type="text" name="nama" class="form-control" placeholder="input data" ></td>
-                    </tr>
-                   
-                        <td></td>
-                    </tr>
-                </table>
-            </form>
-            HARI KE 4
-            <form action="tambah.php" method="post" class="mt-5" runat="server">
-                <table class="table-sm">
-                    <tr>
-                        <td width="50%"><form action="/action_page.php">
-                         <input type="date" id="birthday" name="birthday"></form></td>
-                    </tr>
-                    <tr>
-                    <td><input type="text" name="nama" class="form-control" placeholder="input data" ></td>
-                    </tr>
-                   
-                        <td></td>
-                    </tr>
-                </table>
-            </form>HARI KE 5
-            <form action="tambah.php" method="post" class="mt-5" runat="server">
-                <table class="table-sm">
-                    <tr>
-                        <td width="50%"><form action="/action_page.php">
-                         <input type="date" id="birthday" name="birthday"></form></td>
-                    </tr>
-                    <tr>
-                    <td><input type="text" name="nama" class="form-control" placeholder="input data" ></td>
-                    </tr>
-                   
-                        <td></td>
-                    </tr>
-                </table>
-            </form>
-            HARI KE 6
-            <form action="tambah.php" method="post" class="mt-5" runat="server">
-                <table class="table-sm">
-                    <tr>
-                        <td width="50%"><form action="/action_page.php">
-                         <input type="date" id="birthday" name="birthday"></form></td>
-                    </tr>
-                    <tr>
-                    <td><input type="text" name="nama" class="form-control" placeholder="input data" ></td>
-                    </tr>
-                   
-                        <td></td>
-                    </tr>
-                </table>
-            </form>
-            HARI KE 7
-            <form action="tambah.php" method="post" class="mt-5" runat="server">
-                <table class="table-sm">
-                    <tr>
-                        <td width="50%"><form action="/action_page.php">
-                         <input type="date" id="birthday" name="birthday"></form></td>
-                    </tr>
-                    <tr>
-                    <td><input type="text" name="nama" class="form-control" placeholder="input data" ></td>
-                    </tr>
-                   
-                        <td></td>
-                    </tr>
-                </table>
-            </form>
-            <td align="right">
-            <input type="reset" value="Reset" class="btn btn-danger">
-                            <input type="submit" name="TblSimpan" value="calculate" class="btn btn-success">
-                        </td>
-                        <HR>
-                        <div class="row mb-3">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Total</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3">
-    </div>
-  </div>
-        </center>
+                <li>
+                    <a href="view-laporan-harian.php"><i class="fa fa-cube"></i> <span>Laporan Harian</span> </a>
+                </li>
+                <li><a href="view-laporan-mingguan.php"><i class="fa fa-shopping-basket"></i> <span>Laporan Mingguan</span></a></li>
 
+                <li>
+                    <a href="../login/logout.php"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
+                </li>
+            </ul>
+        </menu>
+    </aside>
+    <form method="post" action="./crud/tambah-pesanan.php">
+        <h1 align="center">Laporan Mingguan</h1>
+        <table align="center" class="table-sm">
+        <tr>  
+        <div class="container-fluid mt-4" align="center">
+        <tr>
+            
+            <tr><td> Day 1</td></tr>
+            <td>
+            <input type="date" id="tanggal "name="tanggal">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="inputtotalharga" class="form-control" placeholder="input total">
+            </td>
+        </tr>
+        <tr><td> Day 2</td></tr>
+        <tr>
+            <td>
+            <input type="date" id="tanggal "name="tanggal">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="inputtotalharga" class="form-control" placeholder="input total">
+            </td>
+        </tr>
+        <tr><td> Day 3</td></tr>
+        <tr>
+            <td>
+            <input type="date" id="tanggal "name="tanggal">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="inputtotalharga" class="form-control" placeholder="input total">
+            </td>
+        </tr>
+        <tr><td> Day 4</td></tr>
+        <tr>
+            <td>
+            <input type="date" id="tanggal "name="tanggal">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="inputtotalharga" class="form-control" placeholder="input total">
+            </td>
+        </tr>
+        <tr><td> Day 5</td></tr>
+        <tr>
+            <td>
+            <input type="date" id="tanggal "name="tanggal">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="inputtotalharga" class="form-control" placeholder="input total">
+            </td>
+        </tr>
+        <tr><td> Day 6</td></tr>
+        <tr>
+            <td>
+            <input type="date" id="tanggal "name="tanggal">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="inputtotalharga" class="form-control" placeholder="input total">
+            </td>
+        </tr>
+        <tr><td> Day 7</td></tr>
+        <tr>
+            <td>
+            <input type="date" id="tanggal "name="tanggal">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="inputtotalharga" class="form-control" placeholder="input total">
+            </td>
+        </tr>
+        <td>
+            <input type="reset" value="reset" class="btn btn-danger">
+            <input type="submit" value="calculate" class="btn btn-success" name="btnSubmit" onclick="Alert">
+        </td>
+            </tr>
+        </table>
+        <hr>
+        <table align="center" class="table-sm">
+        <tr>
+                <td>Jumlah Pemesanan</td>
+                <td><input type="text" id="total_harga" name="total_harga" class="form-control"></td>
+            </tr>
+            <td>
+            <input type="submit" value="print" class="btn btn-success" name="btnSubmit" onclick="Alert">
+            </td>
+        </table>
 
-</body>
-</html>
-
-=======
-
-</html>
->>>>>>> 7f59945b7f80a8131cb37f58ae18558e12f43c42
+    </form>
