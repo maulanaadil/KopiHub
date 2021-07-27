@@ -10,7 +10,6 @@ nav("Lihat Menu");
 dbConnect();
 $data = getMenu()->fetch_all(MYSQLI_ASSOC);
 ?>
-
 <aside class="sidebar">
     <menu>
         <ul class="menu-content">
@@ -42,20 +41,24 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
 
 <body>
     <div class="container">
-
+        <span class="plus"></span>
         <div class="row mt-3">
             <div class="col">
                 <h1 class="display-4">Menu</h1>
             </div>
         </div>
 
-        <div class="row mt-3">
-            <div class="col">
-                <div class="btn-tambah">
-                    <a href="view-tambah-menu.php" class="btn btn-success">Tambah</a>
-                </div>
-            </div>
-        </div>
+        <?php 
+            if ($_SESSION['jabatan'] == "barista") {
+                echo '<div class="row mt-3">
+                        <div class="col">
+                            <div class="btn-tambah">
+                                <a href="view-tambah-menu.php" class="btn btn-success">Tambah</a>
+                            </div>
+                        </div>
+                      </div>';
+            }
+         ?>
 
         <div class="row mt-3">
             <?php foreach ($data as $row) : ?>
@@ -72,8 +75,25 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
                             <center>
                                 <h5 class="card-title"><?= $row["nama_menu"]; ?></h5>
                                 <h5 class="card-title">Rp.<?= $row["harga"]; ?></h5>
-                                <a href="view-ubah-menu.php?id_menu=<?php echo $row['id_menu']; ?>" class="btn btn-primary">Ubah</a>
-                                <a href="view-hapus-menu.php?id_menu=<?php echo $row['id_menu']; ?>" class="btn btn-primary">Hapus</a>
+
+                                <?php 
+                                    if ($_SESSION['jabatan'] == "barista") {
+                                    ?>
+                                        <a href="view-ubah-menu.php?id_menu=<?php echo $row['id_menu']; ?>" class="btn btn-primary">Ubah</a>
+                                        <a href="view-hapus-menu.php?id_menu=<?php echo $row['id_menu']; ?>" class="btn btn-primary">Hapus</a>
+                                <?php 
+                                    } 
+                                    else if ($_SESSION['jabatan'] == "kasir") {
+                                    ?>
+                                        <table>
+                                            <tr>
+                                                <td><input type="number" name="qty" class="form-control"></td>
+                                                <td><input type="button" name="tambah" class="btn btn-success" value="Add"></td>
+                                            </tr>
+                                        </table>
+                                <?php 
+                                    }
+                                 ?>
 
                             </center>
                         </div>
