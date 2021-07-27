@@ -20,7 +20,7 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
                 }
 
                 if ($_SESSION['jabatan'] == "pelayan") {
-                    echo '<a href="../dasboard/dasboard-kasir.php">Home</a>';
+                    echo '<a href="../dasboard/dasboard_pelayan.php">Home</a>';
                 }
 
                 if ($_SESSION['jabatan'] == "barista") {

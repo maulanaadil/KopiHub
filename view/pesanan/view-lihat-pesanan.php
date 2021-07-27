@@ -1,9 +1,9 @@
 <?php
 require('../../functions.php');
- session_start();
- if (!isset($_SESSION["id_pegawai"])) {
-     header("Location: ../../index.php?error=4");
- }
+session_start();
+if (!isset($_SESSION["id_pegawai"])) {
+    header("Location: ../../index.php?error=4");
+}
 
 nav("Lihat Pesanan");
 
@@ -20,7 +20,7 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
                 }
 
                 if ($_SESSION['jabatan'] == "pelayan") {
-                    echo '<a href="../dasboard/dasboard-kasir.php">Home</a>';
+                    echo '<a href="../dasboard/dasboard_pelayan.php">Home</a>';
                 }
 
                 if ($_SESSION['jabatan'] == "barista") {
