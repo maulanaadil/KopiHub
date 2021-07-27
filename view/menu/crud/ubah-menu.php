@@ -5,7 +5,7 @@ if (!isset($_SESSION["id_pegawai"])) {
     header("Location: ../../index.php?error=4");
 }
 
-nav("Tambah Menu");
+nav("Ubah Menu");
 
 if (isset($_POST["TblSimpan"])) {
     $db = dbConnect();
@@ -13,7 +13,6 @@ if (isset($_POST["TblSimpan"])) {
     $namaMenu = $db->escape_string($_POST['nama']);
     $harga = $db->escape_string($_POST['harga']);
     $stok = $db->escape_string($_POST['stok']);
-    $deskripsi = $db->escape_string($_POST['deskripsi']);
     $gambar = $_FILES['gambar']['name'];
     $tmp = $_FILES['gambar']['tmp_name'];
 
@@ -25,8 +24,7 @@ if (isset($_POST["TblSimpan"])) {
     // path folder gambar
     $path = "../images/" . $gambarbaru;
 
-    $sql = "INSERT INTO menu
-            VALUES ('$idMenu','$namaMenu','$harga','$stok','$gambarbaru','$deskripsi')";
+    $sql = "UPDATE menu SET id_menu='$idMenu',nama_menu='$namaMenu',harga='$harga',stok='$stok',gambar_menu='$gambarbaru' WHERE id_menu ='$idMenu'";
 
     $res = $db->query($sql);
     move_uploaded_file($tmp, $path);
@@ -35,13 +33,13 @@ if (isset($_POST["TblSimpan"])) {
 
         echo '<div class="alert alert-success" role="alert" align="center">
                     <h4 class="alert-heading">Well done!</h4>
-                    <p>Berhasil Tambah Menu</p>
+                    <p>Berhasil Ubah Menu</p>
                     <a href="../view-lihat-menu.php" class="btn btn-primary">Kembali</a>
                 </div>';
     } else {
         echo '<div class="alert alert-danger" role="alert" align="center">
                 <h4 class="alert-heading">Warning!</h4>
-                <p>Gagal Tambah Menu, Cek Kembali ID Menu</p>
+                <p>Gagal Ubah Menu</p>
                 <a href="javascript:history.back()" class="btn btn-danger">Kembali</a>
                </div>';
     }

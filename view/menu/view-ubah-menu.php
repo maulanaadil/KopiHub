@@ -24,7 +24,7 @@ nav("Ubah Menu");
 <body>
     <div class="mt-4" align="center">
         <h1>Ubah Menu</h1>
-        <form action="tambah.php" method="post" class="mt-5" runat="server">
+        <form action="crud/ubah-menu.php" method="post" class="mt-5" runat="server" enctype="multipart/form-data">
             <table class="table-sm">
                 <tr>
                     <td width="25%">ID Menu</td>
@@ -41,6 +41,10 @@ nav("Ubah Menu");
                 <tr>
                     <td>Stok</td>
                     <td><input type="number" name="stok" class="form-control" required value="<?= $data["stok"]; ?>"></td>
+                </tr>
+                <tr>
+                    <td>Deskripsi</td>
+                    <td><input type="text" name="deskripsi" class="form-control" required></td>
                 </tr>
                 <tr>
                     <td>Gambar</td>
