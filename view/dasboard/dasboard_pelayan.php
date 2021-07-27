@@ -8,7 +8,8 @@ if (!isset($_SESSION["id_pegawai"])) {
 nav("Lihat Pesanan");
 
 dbConnect();
-$data = getPesanan()->fetch_all(MYSQLI_ASSOC);
+$pesananBelum = countPesananBelum()->fetch_array();
+$pesananSelesai = countPesananSelesai()->fetch_array();
 ?>
 
 <!DOCTYPE html>
@@ -20,10 +21,8 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
             <ul class="menu-content">
 
                 <li>
-                    <a href="../menu/view-lihat-menu.php"><i class="fa fa-cube"></i> <span>Menu</span> </a>
+                    <a href="../dasboard/dasboard_pelayan.php">Home</a>
                 </li>
-                <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket"></i> <span>Pesanan</span></a></li>
-
                 <li>
                     <a href="../login/logout.php"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
                 </li>
@@ -31,100 +30,38 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
         </menu>
     </aside>
     <section class="jumbotron">
-        <h1 class="display-4">Pesanan</h1>
-        <hr>
-        <div class="row mt-3">
-            <div class="col">
-                <h1>Pesanan</h1>
-            </div>
-        </div>
-
+        <h1 class="display-6">Pesanan</h1>
         <div class="row mt-3">
             <div class="col">
             </div>
         </div>
 
-        <div class="row">
-            <?php foreach ($data as $barisdata) { ?>
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <h5>No Pesanan</h5>
-                                    </td>
-                                    <td>
-                                        <h5>:</h5>
-                                    </td>
-                                    <td>
-                                        <h5><?php echo $barisdata["no_pesanan"] ?></h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5>No Meja</h5>
-                                    </td>
-                                    <td>
-                                        <h5>:</h5>
-                                    </td>
-                                    <td>
-                                        <h5> <?php echo $barisdata["no_meja"] ?></h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5>Status Pesanan</h5>
-                                    </td>
-                                    <td>
-                                        <h5>: </h5>
-                                    </td>
-                                    <td>
-                                        <h5><?php echo $barisdata["status_pesanan"] ?> </h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5>Jumlah Pesanan</h5>
-                                    </td>
-                                    <td>
-                                        <h5>:</h5>
-                                    </td>
-                                    <td>
-                                        <h5><?php echo $barisdata["jumlah_pesanan"] ?></h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5>Sub Total</h5>
-                                    </td>
-                                    <td>
-                                        <h5>:</h5>
-                                    </td>
-                                    <td>
-                                        <h5><?php echo $barisdata["sub_total"] ?></h5>
-                                    </td>
-                                </tr>
-                            </table>
+        <div class="table">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>Total Pesanan Yang Belum Selesai</td>
+                    <td>:</td>
+                    <td><?=$pesananBelum[0] ?></td>
+                    <td colspan="3">
+                        <div class="btn-detail" align="right">
+                            <a href="list-pesanan/list-pesanan-belum.php" class="btn btn-primary btn-sm">Detail</a>
                         </div>
-                    </div>
-                </div>
-            <?php
-            }
-            ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total Pesanan Yang Selesai</td>
+                    <td>:</td>
+                    <td><?=$pesananSelesai[0] ?></td>
+                    <td colspan="3">
+                        <div class="btn-detail" align="right">
+                            <a href="list-pesanan/list-pesanan-selesai.php" class="btn btn-primary btn-sm">Detail</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </section>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
-    </div>
-    </section>
-    </div>
-
-
 </body>
-
 </html>

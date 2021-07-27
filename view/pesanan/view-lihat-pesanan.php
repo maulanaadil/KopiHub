@@ -15,6 +15,20 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
     <menu>
         <ul class="menu-content">
             <li>
+                <?php if ($_SESSION['jabatan'] == "kasir") {
+                    echo '<a href="../dasboard/dasboard-kasir.php">Home</a>';
+                }
+
+                if ($_SESSION['jabatan'] == "pelayan") {
+                    echo '<a href="../dasboard/dasboard_pelayan.php">Home</a>';
+                }
+
+                if ($_SESSION['jabatan'] == "barista") {
+                    echo '<a href="../dasboard/dasboard_barista.php">Home</a>';
+                }
+                ?>
+            </li>
+            <li>
                 <a href="../menu/view-lihat-menu.php"><i class="fa fa-cube"></i> <span>Menu</span> </a>
             </li>
             <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket"></i> <span>Pesanan</span></a></li>
@@ -69,8 +83,15 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
                                     <td>
                                         <h5>Status Pesanan</h5>
                                     </td>
-                                    <td>
-                                        <h5 align="right"><?php echo $barisdata["status_pesanan"] ?> </h5>
+                                    <td align="right">
+                                        <?php
+                                            if ($barisdata["status_pesanan"] == "belum") {
+                                                $status = "btn  bg-danger text-white";
+                                            } else if ($barisdata["status_pesanan"] == "selesai") {
+                                                $status = "btn bg-success text-white";
+                                            }
+                                         ?>
+                                        <h5 class="<?= $status ?>"><?= $barisdata["status_pesanan"] ?> </h5>
                                     </td>
                                 </tr>
                                 <tr>
@@ -91,6 +112,7 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
                                 </tr>
                             </table>
                         </div>
+                        <hr>
                         <div class="btn-ubah" align="right">
                             <a href="view-ubah-pesanan.php?no_pesanan=<?php echo $barisdata["no_pesanan"]; ?>" class="btn btn-primary">Ubah</a>
                         </div>

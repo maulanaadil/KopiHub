@@ -5,6 +5,44 @@ function dbConnect()
   return $db;
 }
 
+// Query Lihat Pesanan yang Belum
+function getPesananSelesai()
+{
+    $db = dbConnect();
+    $sql = "SELECT * FROM pesanan WHERE status_pesanan = 'selesai'";
+    return $db->query($sql);
+}
+
+// Query Lihat Pesanan yang Belum
+function getPesananBelum()
+{
+    $db = dbConnect();
+    $sql = "SELECT * FROM pesanan WHERE status_pesanan = 'belum'";
+    return $db->query($sql);
+}
+
+// Query Lihat Pesanan
+function getPesanan()
+{
+    $db = dbConnect();
+    $sql = "SELECT * FROM pesanan";
+    return $db->query($sql);
+}
+
+// Query Count Pesanan dengan status_pesanan = selesai
+function countPesananSelesai() {
+    $db = dbConnect();
+    $sql = "SELECT COUNT(*) FROM pesanan WHERE status_pesanan = 'selesai'";
+    return $db->query($sql);
+}
+
+// Query Count Pesanan dengan status_pesanan = belum
+function countPesananBelum() {
+    $db = dbConnect();
+    $sql = "SELECT COUNT(*) FROM pesanan WHERE status_pesanan = 'belum'";
+    return $db->query($sql);
+}
+
 // Query update Pesanan
 function updatePesanan($no_pesanan, $status_pesanan) {
     return "UPDATE pesanan SET pesanan.status_pesanan= '$status_pesanan' WHERE pesanan.no_pesanan = '$no_pesanan'";
@@ -21,14 +59,6 @@ function getPesananBarista()
 {
   $db = dbConnect();
   $sql = "SELECT * FROM pesanan WHERE status_pesanan='belum'";
-  return $db->query($sql);
-}
-
-// Query Lihat Pesanan
-function getPesanan()
-{
-  $db = dbConnect();
-  $sql = "SELECT * FROM pesanan";
   return $db->query($sql);
 }
 
