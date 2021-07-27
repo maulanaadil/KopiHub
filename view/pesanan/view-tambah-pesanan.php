@@ -17,21 +17,11 @@ if (!isset($_SESSION["id_pegawai"])) {
     <form method="post" action="./crud/tambah-pesanan.php">
         <h1 align="center">Tambah Pesanan</h1>
         <table align="center" class="table-sm">
+            <input type="hidden" name="status_pesanan" value="belum">
             <tr>
                 <td width="25%">No Meja</td>
                 <td width="25%"><input type="text" id="no_meja" name="noMeja" class="form-control" required></td>
             </tr>
-            <tr>
-                <td width="25%">Status Pesanan</td>
-                <td width="25%">
-                    <select class="form-select" id="status_pesanan" name="status_pesanan">
-                        <option value="">Pilih Kondisi</option>
-                        <option value="belum">Belum</option>
-                        <option value="selesai">Selesai</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
             <tr>
                 <td colspan="2" align="center">Nama Menu</td>
             </tr>

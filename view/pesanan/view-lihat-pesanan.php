@@ -84,13 +84,13 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
                                         <h5>Status Pesanan</h5>
                                     </td>
                                     <td align="right">
-                                        <?php 
-                                            if ($barisdata["status_pesanan"] == "belum") {
-                                                $status = "btn  bg-danger text-white";
-                                            } else if ($barisdata["status_pesanan"] == "selesai") {
-                                                $status = "btn bg-success text-white";
-                                            }
-                                         ?>
+                                        <?php
+                                        if ($barisdata["status_pesanan"] == "belum") {
+                                            $status = "btn  bg-danger text-white";
+                                        } else if ($barisdata["status_pesanan"] == "selesai") {
+                                            $status = "btn bg-success text-white";
+                                        }
+                                        ?>
                                         <h5 class="<?php echo $status ?>"><?php echo $barisdata["status_pesanan"] ?> </h5>
                                     </td>
                                 </tr>
