@@ -38,9 +38,11 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
     <?php
     $total = getTotalHarian()->fetch_all(MYSQLI_ASSOC);
     foreach ($total as $total_pendapatan) : ?>
+        <center>
         <div class="alert alert-success" role="alert">
             Pendapatan Pada Tanggal <?php echo $total_pendapatan['tanggal']; ?>
         </div>
+        </center>
     <?php endforeach ?>
     </div>
     <div class="row mt-3">
