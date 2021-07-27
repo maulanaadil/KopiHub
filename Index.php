@@ -39,12 +39,12 @@
                             <table class="table table-borderless">
                                 <tr>
                                     <td>
-                                        <input type="text" name="userid" class="form-control" placeholder="Input ID">
+                                        <input type="text" name="userid" class="form-control" placeholder="Input Your ID">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="password" name="pass" class="form-control" placeholder="Passoword">
+                                        <input type="password" name="pass" class="form-control" placeholder="Input Your Passoword">
                                     </td>
                                 </tr>
                                 <tr>
