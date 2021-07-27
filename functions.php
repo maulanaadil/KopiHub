@@ -21,6 +21,14 @@ function getPesananBelum()
     return $db->query($sql);
 }
 
+// Query Lihat Pesanan
+function getPesanan()
+{
+    $db = dbConnect();
+    $sql = "SELECT * FROM pesanan";
+    return $db->query($sql);
+}
+
 // Query Count Pesanan dengan status_pesanan = selesai
 function countPesananSelesai() {
     $db = dbConnect();
