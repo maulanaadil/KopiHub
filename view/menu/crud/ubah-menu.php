@@ -13,6 +13,7 @@ if (isset($_POST["TblSimpan"])) {
     $namaMenu = $db->escape_string($_POST['nama']);
     $harga = $db->escape_string($_POST['harga']);
     $stok = $db->escape_string($_POST['stok']);
+    $deskripsi = $db->escape_string($_POST['deskripsi']);
     $gambar = $_FILES['gambar']['name'];
     $tmp = $_FILES['gambar']['tmp_name'];
 
@@ -24,7 +25,7 @@ if (isset($_POST["TblSimpan"])) {
     // path folder gambar
     $path = "../images/" . $gambarbaru;
 
-    $sql = "UPDATE menu SET id_menu='$idMenu',nama_menu='$namaMenu',harga='$harga',stok='$stok',gambar_menu='$gambarbaru' WHERE id_menu ='$idMenu'";
+    $sql = "UPDATE menu SET id_menu='$idMenu',nama_menu='$namaMenu',harga='$harga',stok='$stok', deskripsi = '$deskripsi', gambar_menu='$gambarbaru' WHERE id_menu ='$idMenu'";
 
     $res = $db->query($sql);
     move_uploaded_file($tmp, $path);

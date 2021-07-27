@@ -26,7 +26,7 @@ if (isset($_POST["TblSimpan"])) {
     $path = "../images/" . $gambarbaru;
 
     $sql = "INSERT INTO menu
-            VALUES ('$idMenu','$namaMenu','$harga','$stok','$gambarbaru','$deskripsi')";
+            VALUES ('$idMenu','$namaMenu','$harga','$stok','$gambarbaru', '$deskripsi')";
 
     $res = $db->query($sql);
     move_uploaded_file($tmp, $path);
