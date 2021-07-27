@@ -43,6 +43,10 @@ nav("Ubah Menu");
                     <td><input type="number" name="stok" class="form-control" required value="<?= $data["stok"]; ?>"></td>
                 </tr>
                 <tr>
+                    <td>Deskripsi</td>
+                    <td><input type="text" name="deskripsi" class="form-control" required></td>
+                </tr>
+                <tr>
                     <td>Gambar</td>
                     <td><input type="file" name="gambar" class="form-control" id="file" value="<?= $data["gambar_menu"]; ?>"></td>
                 </tr>

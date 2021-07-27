@@ -13,6 +13,7 @@ if (isset($_POST["TblSimpan"])) {
     $namaMenu = $db->escape_string($_POST['nama']);
     $harga = $db->escape_string($_POST['harga']);
     $stok = $db->escape_string($_POST['stok']);
+    $deskripsi = $db->escape_string($_POST['deskripsi']);
     $gambar = $_FILES['gambar']['name'];
     $tmp = $_FILES['gambar']['tmp_name'];
 
@@ -25,7 +26,7 @@ if (isset($_POST["TblSimpan"])) {
     $path = "../images/" . $gambarbaru;
 
     $sql = "INSERT INTO menu
-            VALUES ('$idMenu','$namaMenu','$harga','$stok','$gambarbaru')";
+            VALUES ('$idMenu','$namaMenu','$harga','$stok','$gambarbaru','$deskripsi')";
 
     $res = $db->query($sql);
     move_uploaded_file($tmp, $path);
