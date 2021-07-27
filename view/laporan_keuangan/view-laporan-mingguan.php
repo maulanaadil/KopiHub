@@ -14,7 +14,9 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
 <aside class="sidebar">
         <menu>
             <ul class="menu-content">
-
+            <li>
+            <a href="../dasboard/dasboard-kasir.php">Home</a>
+</li>
                 <li>
                     <a href="view-laporan-harian.php"><i class="fa fa-cube"></i> <span>Laporan Harian</span> </a>
                 </li>
