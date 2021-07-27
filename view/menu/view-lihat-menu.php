@@ -1,9 +1,9 @@
 <?php
 require('../../functions.php');
- session_start();
- if (!isset($_SESSION["id_pegawai"])) {
-     header("Location: ../../index.php?error=4");
- }
+session_start();
+if (!isset($_SESSION["id_pegawai"])) {
+    header("Location: ../../index.php?error=4");
+}
 
 nav("Lihat Menu");
 
@@ -16,15 +16,19 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
         <ul class="menu-content">
             <li>
                 <?php if ($_SESSION['jabatan'] == "kasir") {
-                echo '<a href="../dasboard/dasboard-kasir.php">Home</a>';
+                    echo '<a href="../dasboard/dasboard-kasir.php">Home</a>';
                 }
 
-                if ($_SESSION['jabatan'] == "pelayan"){
+                if ($_SESSION['jabatan'] == "pelayan") {
                     echo '<a href="../dasboard/dasboard-kasir.php">Home</a>';
+                }
+
+                if ($_SESSION['jabatan'] == "barista") {
+                    echo '<a href="../dasboard/dasboard_barista.php">Home</a>';
                 }
                 ?>
             </li>
-            
+
             <li>
                 <a href="../menu/view-lihat-menu.php"><i class="fa fa-cube"></i> <span>Menu</span> </a>
             </li>
@@ -48,7 +52,7 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
         <div class="row mt-3">
             <div class="col">
                 <div class="btn-tambah">
-                    <a href="view-tambah-menu.php" class="btn btn-primary">Tambah</a>
+                    <a href="view-tambah-menu.php" class="btn btn-success">Tambah</a>
                 </div>
             </div>
         </div>

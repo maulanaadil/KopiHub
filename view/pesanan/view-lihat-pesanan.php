@@ -16,11 +16,15 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
         <ul class="menu-content">
             <li>
                 <?php if ($_SESSION['jabatan'] == "kasir") {
-                echo '<a href="../dasboard/dasboard-kasir.php">Home</a>';
+                    echo '<a href="../dasboard/dasboard-kasir.php">Home</a>';
                 }
 
-                if ($_SESSION['jabatan'] == "pelayan"){
+                if ($_SESSION['jabatan'] == "pelayan") {
                     echo '<a href="../dasboard/dasboard-kasir.php">Home</a>';
+                }
+
+                if ($_SESSION['jabatan'] == "barista") {
+                    echo '<a href="../dasboard/dasboard_barista.php">Home</a>';
                 }
                 ?>
             </li>
