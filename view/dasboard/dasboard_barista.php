@@ -24,7 +24,6 @@ $data = getPesananBarista()->fetch_all(MYSQLI_ASSOC);
                 </li>
                 <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket"></i>
                         <span>Pesanan</span></a></li>
-
                 <li>
                     <a href="../login/logout.php"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
                 </li>
@@ -34,10 +33,10 @@ $data = getPesananBarista()->fetch_all(MYSQLI_ASSOC);
     <section class="jumbotron">
         <h1 class="display-4">Barista</h1>
         <hr>
-        <div class="row px-4">
+        <div class="row">
 
             <?php foreach ($data as $row) { ?>
-                <div class="col-sm-6">
+                <div class="col-sm">
                     <div class="card" style="width: 18rem; margin-top: 20px">
                         <div class="card-body">
                             <h5 class="card-title" align="center">No Pesanan <?= $row["no_pesanan"] ?></h5>
