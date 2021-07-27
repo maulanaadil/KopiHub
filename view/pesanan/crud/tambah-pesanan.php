@@ -13,11 +13,14 @@ if (isset($_POST["btnSubmit"])) {
         $statusPesanan = $db->escape_string($_POST["status_pesanan"]);
         $jumlahPemesanan = $db->escape_string($_POST["jumlah_pemesanan"]);
         $subTotal = $db->escape_string($_POST["subTotal"]);
-
+        $tanggal = date("Y-m-d");
 
         $sql = addPesanan($noMeja, $statusPesanan, $jumlahPemesanan, $subTotal);
+
         if (mysqli_query($db, $sql)) {
             if ($db->affected_rows > 0) {
+                $sql2 = "INSERT INTO pembayaran VALUES ('','$tanggal',$subTotal)";
+                $res = $db->query($sql2);
                 nav("Tambah Pesanan Berhasil");
 ?>
                 <h4 align="center">Data Successfully Added.<br>
