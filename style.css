@@ -2,10 +2,6 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
-body{
-	font-family: 'Quicksand', sans-serif;
- }
-
  section{
 	padding-top: 5rem;
  }
@@ -75,7 +71,6 @@ body{
  .container{
 	 margin-left: 20%;
  }
-
 
  /*apabila lebar min 768px*/
  @media(min-width: 768px) {
