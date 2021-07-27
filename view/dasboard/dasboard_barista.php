@@ -16,6 +16,9 @@ $data = getPesananBarista()->fetch_all(MYSQLI_ASSOC);
         <ul class="menu-content">
 
             <li>
+                    <a href="#">Home</a>
+                </li>
+            <li>
                 <a href="../menu/view-lihat-menu.php"><i class="fa fa-cube"></i> <span>Menu</span> </a>
             </li>
             <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket"></i>

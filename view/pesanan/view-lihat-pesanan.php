@@ -15,6 +15,16 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
     <menu>
         <ul class="menu-content">
             <li>
+                <?php if ($_SESSION['jabatan'] == "kasir") {
+                echo '<a href="../dasboard/dasboard-kasir.php">Home</a>';
+                }
+
+                if ($_SESSION['jabatan'] == "pelayan"){
+                    echo '<a href="../dasboard/dasboard-kasir.php">Home</a>';
+                }
+                ?>
+            </li>
+            <li>
                 <a href="../menu/view-lihat-menu.php"><i class="fa fa-cube"></i> <span>Menu</span> </a>
             </li>
             <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket"></i> <span>Pesanan</span></a></li>

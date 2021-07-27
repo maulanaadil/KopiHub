@@ -18,6 +18,12 @@ $data = getmenu()->fetch_all(MYSQLI_ASSOC);
   <aside class="sidebar">
     <menu>
       <ul class="menu-content">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="../menu/view-lihat-menu.php"><i class="fa fa-cube"></i> <span>Menu</span> </a>
+        </li>
         <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket"></i> <span>Pesanan</span></a></li>
         <li><a href="../laporan_keuangan/laporan.php"><i class="fa fa-shopping-basket"></i> <span>Laporan</span></a></li>
         <li>

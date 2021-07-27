@@ -20,6 +20,9 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
             <ul class="menu-content">
 
                 <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
                     <a href="../menu/view-lihat-menu.php"><i class="fa fa-cube"></i> <span>Menu</span> </a>
                 </li>
                 <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket"></i> <span>Pesanan</span></a></li>
@@ -33,11 +36,6 @@ $data = getPesanan()->fetch_all(MYSQLI_ASSOC);
     <section class="jumbotron">
         <h1 class="display-4">Pesanan</h1>
         <hr>
-        <div class="row mt-3">
-            <div class="col">
-                <h1>Pesanan</h1>
-            </div>
-        </div>
 
         <div class="row mt-3">
             <div class="col">
