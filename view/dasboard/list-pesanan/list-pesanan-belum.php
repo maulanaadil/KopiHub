@@ -32,19 +32,18 @@ $data = getPesananBelum()->fetch_all(MYSQLI_ASSOC);
     </menu>
 </aside>
 <section class="jumbotron">
-    <h1 class="display-6">Detail Pesanan Yang Belum</h1>
-    <hr>
+
     <div class="row mt-3">
         <div class="col">
+            <h1 class="display-4">List Pesanan Belum Selesai</h1>
         </div>
     </div>
-
     <div class="row">
-        <?php foreach ($data as $barisdata) { ?>
+    <?php foreach ($data as $barisdata) { ?>
             <div class="col-sm-6">
-                <div class="card">
+                <div class="card" style="width: 25rem; margin-bottom: 25px">
                     <div class="card-body">
-                        <table>
+                    <table>
                             <tr>
                                 <td>
                                     <h5>No Pesanan</h5>
