@@ -142,19 +142,25 @@ function getDataMenu($id_menu)
   return $db->query($sql);
 }
 
-function getLaporanBulanan($bulan, $tahun)
+function getLaporanHarian($tanggal)
 {
     $db = dbConnect();
-    $sql = "SELECT MONTH(tanggal) as bulan, YEAR(tanggal) as tahun, sum(total_harga) as total FROM pembayaran WHERE YEAR(tanggal) = '$tahun' AND MONTH(tanggal) = '$bulan'";
+    $sql = "SELECT pembayaran.tanggal as tanggal, pesanan.no_pesanan as np, pesanan.jumlah_pesanan as jp, pembayaran.total_harga as th FROM pembayaran INNER JOIN pesanan ON pembayaran.no_pesanan = pesanan.no_pesanan WHERE tanggal = '$tanggal'";
     return $db->query($sql);
 }
 
-
-function getLaporanHarian()
+function getLaporanBulanan($bulan, $tahun)
 {
-  $db = dbConnect();
-  $sql = "SELECT id_pembayaran, total_harga, tanggal FROM pembayaran";
-  return $db->query($sql);
+    $db = dbConnect();
+    $sql = "SELECT tanggal, total_harga as total FROM pembayaran WHERE YEAR(tanggal) = '$tahun' AND MONTH(tanggal) = '$bulan'";
+    return $db->query($sql);
+}
+
+function getTotalBulanan($bulan, $tahun)
+{
+    $db = dbConnect();
+    $sql = "SELECT sum(total_harga) as total FROM pembayaran WHERE YEAR(tanggal) = '$tahun' AND MONTH(tanggal) = '$bulan'";
+    return $db->query($sql);
 }
 
 function getTotalHarian()
@@ -205,6 +211,22 @@ function nav($title)
        <p class="h6" style="color: white;">Halo, <?= $_SESSION["nama"]; ?></p>
     </div>
   </nav>
+<?php
+}
+function nav3()
+{
+?>
+  <!DOCTYPE html>
+  <html>
+
+  <head>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+
 <?php
 }
 

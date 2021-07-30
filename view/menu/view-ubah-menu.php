@@ -13,7 +13,6 @@ $data = getDataMenu($id_menu)->fetch_assoc();
 nav("Ubah Menu");
 ?>
 
-<!--//TODO : FUNCTION UPDATE MENU BELOM-->
 <style>
     .gambar {
         max-width: 250px;
@@ -54,7 +53,7 @@ nav("Ubah Menu");
                 <tr>
                     <td></td>
                     <td align="right">
-                        <img align="left" class="gambar mb-3" src="default.jpg" alt="Pilih Gambar" id="gambar" onError="$(this).hide();">
+                        <img align="left" class="gambar mb-3" src="images/<?= $data['gambar_menu']; ?>" alt="Pilih Gambar" id="gambar" onError="$(this).hide();">
                         <a href="view-lihat-menu.php" class="btn btn-outline-secondary">Batal</a>
                         <input type="submit" name="TblSimpan" value="Simpan" class="btn btn-success">
                     </td>

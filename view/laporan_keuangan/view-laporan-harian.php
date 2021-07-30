@@ -6,8 +6,7 @@ if (!isset($_SESSION["id_pegawai"])) {
 }
 
 nav("Laporan harian");
-dbConnect();
-$data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
+$db = dbConnect();
 ?>
 
 <head>
@@ -76,21 +75,40 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
 
 <!--        TAMPILAN LAPORAN-->
         <div class="row justify-content-center">
-            <div class="col-auto">
+            <div class="col-md-12">
                 <div class="tampilan-tabel">
                     <table class="table table-responsive" id="displaytable" style=" width: 100%;">
                         <thead>
                         <tr>
-                            <th scope="col" style="width: 900px !important;">No</th>
-                            <th scope="col" style="width: 900px !important;">Tanggal</th>
-                            <th scope="col" style="width: 900px !important;">Bulan</th>
-                            <th scope="col" style="width: 900px !important;">Tahun</th>
-                            <th scope="col" style="width: 900px !important;">Pendapatan</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">No Pesanan</th>
+                            <th scope="col">Jumlah Pesanan</th>
+                            <th scope="col">Total </th>
                         </tr>
                         </thead>
                         <tbody>
+                        <?php
 
-<!--                        //TODO: Tampilin data laporan harian -->
+                        if (isset($_POST['btn_cari'])) {
+                        $tanggal = $db->escape_string($_POST['tanggal']);
+                        $no = 1;
+                        $data = getLaporanHarian($tanggal)->fetch_all(MYSQLI_ASSOC);
+
+                        foreach ($data as $dataLaporan) :
+                        ?>
+                        <tr>
+                            <td scope="row"><?= $no++ ?></td>
+                            <td><?= $dataLaporan['tanggal']; ?></td>
+                            <td><?= $dataLaporan['np']; ?></td>
+                            <td><?= $dataLaporan['jp']; ?></td>
+                            <td><?= $dataLaporan['th']; ?></td>
+
+                        </tr>
+                        <?php
+                        endforeach;
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div>

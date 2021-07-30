@@ -5,7 +5,7 @@ if (!isset($_SESSION["id_pegawai"])) {
     header("Location: ../../index.php?error=4");
 }
 
-nav("Laporan harian");
+nav("laporan bulanan");
 
 $db = dbConnect();
 ?>
@@ -60,7 +60,7 @@ $db = dbConnect();
         <form method="post">
             <dd>Silahkan Pilih bulan dan tahun untuk memfilter data.</dd>
             <p>Bulan :
-                <select name="slc_bulan">
+                <select name="slc_bulan" id="slc_bulan">
                     <option>--Pilih Bulan--</option>
                     <option value="01">Januari</option>
                     <option value="02">Februari</option>
@@ -82,24 +82,23 @@ $db = dbConnect();
                 &nbsp;
                 &nbsp;
                 &nbsp;
-                Tahun : <input type="text" width="20%" placeholder="Masukkan Tahun" name="tahun">
+                Tahun : <input type="text" width="20%" placeholder="Masukkan Tahun" name="tahun" id="tahun">
             </p>
             <div class="btn_cari" style="margin-left: 440px">
-                <button class="btn btn-primary" id="toggleVisibilityButton" name="btn_cari">Cari!</button>
+                <button class="btn btn-primary" id="toggleVisibilityButton" name="btn_cari" id="btn-cari">Cari!</button>
             </div>
         </form>
         <hr>
         <!--        TAMPILAN LAPORAN-->
         <div class="row justify-content-center">
-            <div class="col-auto">
+            <div class="col-md  -12">
                 <div class="tampilan-tabel">
-                    <table class="table table-responsive" id="displaytable" style=" width: 100%;">
+                    <table class="table table-responsive" id="displaytable" style="width: 100%;">
                         <thead>
                         <tr>
-                            <th scope="col" style="width: 900px !important;">No</th>
-                            <th scope="col" style="width: 900px !important;">Bulan</th>
-                            <th scope="col" style="width: 900px !important;">Tahun</th>
-                            <th scope="col" style="width: 900px !important;">Pendapatan</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Total</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -110,24 +109,27 @@ $db = dbConnect();
                         $no = 1;
                         $data = getLaporanBulanan($bulan, $tahun)->fetch_all(MYSQLI_ASSOC);
 
-                        foreach ($data
-
-                        as $dataLaporan) :
+                        foreach ($data as $dataLaporan) :
                         ?>
                         <tr>
                             <td scope="row"><?= $no++ ?></td>
-                            <td><?= $dataLaporan['bulan']; ?></td>
-                            <td><?= $dataLaporan['tahun']; ?></td>
+                            <td><?= $dataLaporan['tanggal']; ?></td>
                             <td><?php
                                 $value = (int)$dataLaporan['total'];
                                 echo rupiah($value);
                                 ?></td>
                         </tr>
+                        <?php
+                        endforeach;
+
+                        $data2 = getTotalBulanan($bulan, $tahun)->fetch_all(MYSQLI_ASSOC);
+                        foreach ($data2 as $total) :
+                        ?>
                         <tr>
-                            <td colspan="3" align="center"> Total Pendapatan :</td>
+                            <td colspan="2" align="center"> Total Pendapatan :</td>
                             <td>
                                 <?php
-                                $value = (int)$dataLaporan['total'];
+                                $value = (int) $total['total'];
                                 echo rupiah($value);
                                 ?>
                             </td>
@@ -140,13 +142,19 @@ $db = dbConnect();
                 </div>
             </div>
 
-<!--            //TODO: Bikin algo buat export ke excel-->
             <!--            BUTTON EXPORT-->
+            <form action="excel.php" method="post">
+
             <div class="btn-export-to-excel" align="right">
-                <button class="btn btn-success btn-lg"><i class="fa fa-file-excel-o">&nbsp;</i> Export to Excel</button>
+                <input type="hidden" name="slc_bulan1" id="slc_bulan1" value="<?= $bulan; ?>">
+                <input type="hidden" name="tahun1" id="tahun1" value="<?= $tahun; ?>">
+                <button name="export_excel" onclick="exceldo()" class="btn btn-success btn-lg"><i class="fa fa-file-excel-o">&nbsp;</i> Export to Excel</button>
             </div>
+            </form>
         </div>
     </div>
 </section>
+
+
 </body>
 </html>
