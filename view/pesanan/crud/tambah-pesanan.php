@@ -7,39 +7,62 @@ if (!isset($_SESSION["id_pegawai"])) {
 }
 
 $db = dbConnect();
-if (isset($_POST["btnSubmit"])) {
-    if ($db->connect_errno == 0) {
-        $noMeja = $db->escape_string($_POST["noMeja"]);
-        $statusPesanan = $db->escape_string($_POST["status_pesanan"]);
-        $jumlahPemesanan = $db->escape_string($_POST["jumlah_pemesanan"]);
-        $subTotal = $db->escape_string($_POST["subTotal"]);
-        $tanggal = date("Y-m-d");
+if ($db->connect_errno == 0) {
+    $noMeja = $db->escape_string($_POST["noMeja"]);
+    $statusPesanan = 0;
+    $pesanan = $_POST["id_menu"];
+    $jumlah = $_POST["jumlah"];
+    $jumlahPemesanan = $db->escape_string($_POST["jumlah_pemesanan"]);
+    $subTotal = $db->escape_string($_POST["total_harga"]);
 
-        $sql = addPesanan($noMeja, $statusPesanan, $jumlahPemesanan, $subTotal);
+    $queryPesanan = addPesanan($noMeja, $statusPesanan, $jumlahPemesanan, $subTotal);
 
-        if (mysqli_query($db, $sql)) {
+    // TODO: Tambahan query mengurangi stock dari table menu
+
+
+    if (mysqli_query($db, $queryPesanan)) {
+        if ($db->affected_rows > 0) {
+            $query = "select no_pesanan from pesanan order by no_pesanan DESC";
+            $data = mysqli_query($db, $query);
+            $row = mysqli_fetch_array($data);
+            $psn = $row['no_pesanan'];
+
+            $count = count($pesanan);
+
+            for ($i = 0; $i < $count; $i++) {
+                $data = array(
+                    "no_pesanan" => $psn,
+                    "id_menu" => $pesanan[$i],
+                    "qty" => $jumlah[$i],
+                );
+
+                $nopesan = $data['no_pesanan'];
+                $idmenu = $data['id_menu'];
+                $jml = $data['qty'];
+
+//                $queryGetStokMenu = getDataMenu($idmenu);
+//                $data2 = mysqli_query($db, $queryGetStokMenu);
+//                $row2 = mysqli_fetch_array($data2);
+
+
+//                $value = intval($row2['stok']) - intval($data['qty']);
+
+                $queryPesanan = addPesanandetail($nopesan, $idmenu, $_SESSION['id_pegawai'], $jml);
+//                $queryUpdateStokMenu = updateStokMenu($idmenu, $value);
+                mysqli_query($db, $queryPesanan);
+//                mysqli_query($db, $queryUpdateStokMenu);
+            }
             if ($db->affected_rows > 0) {
-                $sql2 = "INSERT INTO pembayaran VALUES ('','$tanggal',$subTotal)";
-                $res = $db->query($sql2);
-                nav("Tambah Pesanan Berhasil");
-?>
-                <h4 align="center">Data Successfully Added.<br>
-                    <a href="../view-lihat-pesanan.php">
-                        <button class="btn btn-success" align="center">View Pesanan</button>
-                    </a>
-                <?php
+                echo 1;
             } else {
-                nav("Tambah Pesanan Gagal");
-                ?>
-                    <h4 align="center">Data Added Failed.<br>
-                        <a href="javascript:history.back()">
-                            <button class="btn btn-danger">Back</button>
-                        </a>
-        <?php
+                echo 0;
             }
         } else {
-            "ERROR GAMASUK";
+            echo 0;
         }
     } else {
+        echo 0;
     }
+} else {
+    echo 0;
 }

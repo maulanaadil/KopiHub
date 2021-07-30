@@ -18,64 +18,85 @@ $data = getLaporanHarian()->fetch_all(MYSQLI_ASSOC);
 </head>
 
 <body>
-    <aside class="sidebar">
-        <menu>
-            <ul class="menu-content">
-                <li>
-          <a href="../dasboard/dasboard-kasir.php">Home</a>
-        </li>
-                <li>
-                    <a href="view-laporan-harian.php"><i class="fa fa-cube"></i> <span>Laporan Harian</span> </a>
-                </li>
-                <li><a href="view-laporan-mingguan.php"><i class="fa fa-shopping-basket"></i> <span>Laporan Mingguan</span></a></li>
+<!--SIDEBAR-->
+<aside class="sidebar">
+    <menu>
+        <ul class="menu-content dropdown">
+            <li>
+                <a href="../dasboard/dasboard-kasir.php"><i class="fa fa-home">&nbsp;</i>Home</a>
+            </li>
+            <li>
+                <a href="../menu/view-lihat-menu.php"><i class="fa fa-book">&nbsp;</i> <span>Menu</span> </a>
+            </li>
+            <li>
+                <a href="../pesanan/view-lihat-pesanan.php">
+                    <i class="fa fa-shopping-basket">&nbsp;</i>
+                    <span>Pesanan</span>
+                </a>
+                <ul class="dropdown">
+                    <li class="sub-li"><a href="../dasboard/list-pesanan/list-pesanan-selesai.php"><i
+                                    class="fa fa-check">&nbsp;</i>Selesai</a></li>
+                    <li class="sub-li"><a href="../dasboard/list-pesanan/list-pesanan-belum-dibayar.php"><i
+                                    class="fa fa-times">&nbsp;</i>Belum Dibayar</a></li>
+                    <li class="sub-li"><a href="../dasboard/list-pesanan/list-pesanan-belum-dibuat.php"><i
+                                    class="fa fa-coffee ">&nbsp;</i>Belum Dibuat</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-file">&nbsp;</i><span>Laporan</span>
+                </a>
+                <ul class="dropdown">
+                    <li class="sub-li"><a href="../laporan_keuangan/view-laporan-harian.php"><i class="fa fa-calendar">&nbsp;</i>Laporan
+                            Harian</a></li>
+                    <li class="sub-li"><a href="view-laporan-bulanan.php"><i
+                                    class="fa fa-calendar">&nbsp;</i>laporan bulanan</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../login/logout.php"><i class="fa fa-sign-out"></i> <span>Log Out</span> </a>
+            </li>
+        </ul>
+    </menu>
+</aside>
+<!--BODY-->
+<section class="jumbotron">
+    <!--    FILTER LAPORAN-->
+    <div class="filter-laporan">
+        <form method="post">
+            <dd>Silahkan Pilih tanggal untuk memfilter data.</dd>
+            <p>&nbsp;
+                Tanggal : <input type="date" name="tanggal">
+            </p>
+            <div class="btn_cari" style="margin-left: 210px">
+                <button class="btn btn-primary" id="toggleVisibilityButton" name="btn_cari">Cari!</button>
+            </div>
+        </form>
+        <hr>
 
-                <li>
-                    <a href="../login/logout.php"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
-                </li>
-            </ul>
-        </menu>
-    </aside>
-    <?php
-    $total = getTotalHarian()->fetch_all(MYSQLI_ASSOC);
-    foreach ($total as $total_pendapatan) : ?>
-        <center>
-        <div class="alert alert-success" role="alert">
-            Pendapatan Pada Tanggal <?php echo $total_pendapatan['tanggal']; ?>
-        </div>
-        </center>
-    <?php endforeach ?>
-    </div>
-    <div class="row mt-3">
-        <center>
-            <table class="table" style="width: auto;">
-                <thead>
-                    <tr>
-                        <th scope="col">id pembayaran</th>
-                        <th scope="col">total</th>
-                        <th scope="col">date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($data as $row) : ?>
+<!--        TAMPILAN LAPORAN-->
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div class="tampilan-tabel">
+                    <table class="table table-responsive" id="displaytable" style=" width: 100%;">
+                        <thead>
                         <tr>
-                            <th><?= $row["id_pembayaran"]; ?></th>
-                            <td align="right"><?= $row["total_harga"]; ?></td>
-                            <td><?= $row["tanggal"]; ?></td>
+                            <th scope="col" style="width: 900px !important;">No</th>
+                            <th scope="col" style="width: 900px !important;">Tanggal</th>
+                            <th scope="col" style="width: 900px !important;">Bulan</th>
+                            <th scope="col" style="width: 900px !important;">Tahun</th>
+                            <th scope="col" style="width: 900px !important;">Pendapatan</th>
                         </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
-            <?php
-            $total = getTotalHarian()->fetch_all(MYSQLI_ASSOC);
+                        </thead>
+                        <tbody>
 
-            foreach ($total as $total_pendapatan) : ?>
-                <div class="row mt-3">
-                    <h6>Total Pendapatan : Rp.<?php echo $total_pendapatan['SUM(total_harga)']; ?> </h6>
+<!--                        //TODO: Tampilin data laporan harian -->
+                        </tbody>
+                    </table>
                 </div>
-
-        </center>
-    <?php endforeach ?>
-    </div>
+            </div>
+        </div>
+</section>
 </body>
 
 </html>

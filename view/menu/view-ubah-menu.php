@@ -19,8 +19,7 @@ nav("Ubah Menu");
     }
 </style>
 
-<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-
+<!--BODY-->
 <body>
     <div class="mt-4" align="center">
         <h1>Ubah Menu</h1>
@@ -34,6 +33,10 @@ nav("Ubah Menu");
                     <td>Nama Menu</td>
                     <td><input type="text" name="nama" class="form-control" required value="<?= $data["nama_menu"]; ?>"></td>
                 </tr>
+<!--                <tr>-->
+<!--                    <td>Deskripsi</td>-->
+<!--                    <td><input type="text" name="deskripsi" class="form-control" required value="--><?//= $data["deskripsi"]; ?><!--"></td>-->
+<!--                </tr>-->
                 <tr>
                     <td>Harga</td>
                     <td><input type="text" name="harga" class="form-control" required value="<?= $data["harga"]; ?>"></td>
@@ -80,4 +83,8 @@ nav("Ubah Menu");
         $('#gambar').show();
         readURL(this);
     });
+
+    function updateData() {
+
+    }
 </script>

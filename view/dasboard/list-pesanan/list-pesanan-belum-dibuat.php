@@ -8,7 +8,7 @@ if (!isset($_SESSION["id_pegawai"])) {
 nav("Lihat Pesanan");
 
 dbConnect();
-$data = getPesananSelesai()->fetch_all(MYSQLI_ASSOC);
+$data = getPesananBelumDibuat()->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +59,7 @@ $data = getPesananSelesai()->fetch_all(MYSQLI_ASSOC);
                     </ul>
                 </li>
 
-            <?php
+                <?php
             }
             ?>
             <li>
@@ -75,13 +75,13 @@ $data = getPesananSelesai()->fetch_all(MYSQLI_ASSOC);
 <!--    TITLE HEADER-->
     <div class="row mt-3">
         <div class="col">
-            <h1 class="display-4">List Pesanan Selesai</h1>
+            <h1 class="display-4">List Pesanan Belum Dibuat</h1>
             <hr>
         </div>
     </div>
     <div class="row">
         <?php foreach ($data as $barisdata) { ?>
-<!--            CARD LIST-->
+<!--                CARD LIST-->
             <div class="col-sm-3">
                 <div class="card bg-light" style="width: 15rem; margin-bottom: 25px">
                     <div class="card-header">
@@ -104,9 +104,9 @@ $data = getPesananSelesai()->fetch_all(MYSQLI_ASSOC);
                                 </td>
                                 <td>&nbsp;</td>
                                 <td align="right">
-                                    <p class="card-text text-success"><?php
-                                        if ($barisdata["status_pesanan"] == 2) {
-                                            echo "Selesai";
+                                    <p class="card-text text-danger"><?php
+                                        if ($barisdata["status_pesanan"] == 0) {
+                                            echo "Belum Dibuat";
                                         }
                                         ?> </p>
                                 </td>

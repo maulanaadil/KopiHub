@@ -8,7 +8,8 @@ if (!isset($_SESSION["id_pegawai"])) {
 nav("Lihat Pesanan");
 
 dbConnect();
-$pesananBelum = countPesananBelum()->fetch_array();
+$pesananBelumDibuat = countPesananBelumDibuat()->fetch_array();
+$pesananBelumDibayar = countPesananBelumDibayar()->fetch_array();
 $pesananSelesai = countPesananSelesai()->fetch_array();
 ?>
 
@@ -16,36 +17,54 @@ $pesananSelesai = countPesananSelesai()->fetch_array();
 <html lang="en">
 
 <body>
+<!--SIDEBAR-->
     <aside class="sidebar">
         <menu>
             <ul class="menu-content">
 
                 <li>
-                    <a href="../dasboard/dasboard_pelayan.php">Home</a>
+                    <a href="../dasboard/dasboard_pelayan.php"><i class="fa fa-home">&nbsp;</i>Home</a>
                 </li>
                 <li>
-                    <a href="../login/logout.php"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
+                    <a href="../login/logout.php"><i class="fa fa-sign-out">&nbsp;</i> <span>Log Out</span> </a>
                 </li>
             </ul>
         </menu>
     </aside>
-    <section class="jumbotron">
-        <h1 class="display-6">Pesanan</h1>
-        <div class="row mt-3">
-            <div class="col">
-            </div>
-        </div>
 
+<!--BODY-->
+    <section class="jumbotron">
+
+
+        <!--      INFORMATION HEADER-->
+        <div class="information">
+            <p class="h3">Dashboard Pelayan &nbsp;<span class="text-primary" onclick="showInformation()"><i class="fa fa-info-circle"></i></span></p>
+            <dd>List dibawah merupakan pesanan pesanan yang sudah dipesan.</dd>
+        </div>
+        <hr>
+
+
+        <!--        LIST SECTION-->
         <div class="table">
             <table class="table">
                 <tbody>
                 <tr>
-                    <td>Total Pesanan Yang Belum Selesai</td>
+                    <td>Total Pesanan Yang Belum Dibuat</td>
                     <td>:</td>
-                    <td><?=$pesananBelum[0] ?></td>
+                    <td><?=$pesananBelumDibuat[0] ?></td>
                     <td colspan="3">
                         <div class="btn-detail" align="right">
-                            <a href="list-pesanan/list-pesanan-belum.php" class="btn btn-primary btn-sm">Detail</a>
+                            <a href="list-pesanan/list-pesanan-belum-dibuat.php" class="btn btn-primary btn-sm">Detail</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total Pesanan Yang Belum Dibayar</td>
+                    <td>:</td>
+                    <td><?=$pesananBelumDibayar[0] ?></td>
+                    <td colspan="3">
+                        <div class="btn-detail" align="right">
+                            <a href="list-pesanan/list-pesanan-belum-dibayar.php" class="btn btn-primary btn-sm">Detail</a>
                         </div>
                     </td>
                 </tr>
@@ -64,4 +83,16 @@ $pesananSelesai = countPesananSelesai()->fetch_array();
         </div>
     </section>
 </body>
+<script>
+    function showInformation() {
+        swal.fire({
+            icon: "info",
+            title: "Information",
+            text: "Tekan tombol detail untuk melihat detail pesanan.",
+            showConfirmButton: true,
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "Alright!",
+        });
+    }
+</script>
 </html>

@@ -7,56 +7,127 @@ if (!isset($_SESSION["id_pegawai"])) {
 
 nav("Barista");
 
+$nopesanan = array();
+$no = 1;
 dbConnect();
 $data = getPesananBarista()->fetch_all(MYSQLI_ASSOC);
+
 ?>
 
 <body>
-    <aside class="sidebar">
-        <menu>
-            <ul class="menu-content">
+<!--SIDEBAR-->
+<aside class="sidebar">
+    <menu>
+        <ul class="menu-content">
 
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="../menu/view-lihat-menu.php"><i class="fa fa-cube"></i> <span>Menu</span> </a>
-                </li>
-                <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket"></i>
-                        <span>Pesanan</span></a></li>
-                <li>
-                    <a href="../login/logout.php"><i class="fa fa-cube"></i> <span>Log Out</span> </a>
-                </li>
-            </ul>
-        </menu>
-    </aside>
-    <section class="jumbotron">
-        <h1 class="display-4">Barista</h1>
-        <hr>
-        <div class="row">
+            <li>
+                <a href="#"><i class="fa fa-home">&nbsp;</i> Home</a>
+            </li>
+            <li>
+                <a href="../menu/view-lihat-menu.php"><i class="fa fa-book">&nbsp;</i> <span>Menu</span> </a>
+            </li>
+            <li><a href="../pesanan/view-lihat-pesanan.php"><i class="fa fa-shopping-basket">&nbsp;</i>
+                    <span>Pesanan</span></a></li>
+            <li>
+                <a href="../login/logout.php"><i class="fa fa-sign-out">&nbsp;</i> <span>Log Out</span> </a>
+            </li>
+        </ul>
+    </menu>
+</aside>
+<!--CARD SECTION-->
+<section class="jumbotron">
+    <div class="information">
+        <p class="h3">Dashboard Barista &nbsp;<span class="text-primary" onclick="showInformation()"><i
+                        class="fa fa-info-circle"></i></span></p>
+        <dd>List dibawah merupakan pesanan yang belum dibuat tekan tombol selesai apabila pesanan sudah dibuatkan.
+        </dd>
+    </div>
+    <hr>
+    <div class="row">
 
-            <?php foreach ($data as $row) { ?>
-                <div class="col-sm">
-                    <div class="card" style="width: 18rem; margin-top: 20px">
-                        <div class="card-body">
-                            <h5 class="card-title" align="center">No Pesanan <?= $row["no_pesanan"] ?></h5>
-                            <input type="text" name="no_pesanan" value="<?= $row["no_pesanan"] ?>" hidden readonly>
-                            <hr>
-                            <p class="card-text">Status Pesanan :</p>
-                            <select class="form-select" id="status_pesanan" name="status_pesanan">
-                                <option value="" hidden><?= $row["status_pesanan"] ?></option>
-                                <option value="belum">belum</option>
-                                <option value="selesai">selesai</option>
-                            </select>
-                            <div class="btn-submit" align="right" style="margin-top: 20px">
-                                <a href="crud/update-dasboard-barista.php?no_pesanan=<?= $row["no_pesanan"]; ?>" class="btn btn-primary" id="btn_submit">Submit</a>
-                            </div>
+        <?php foreach ($data as $row) { ?>
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" align="center">No Pesanan <?= $row["no_pesanan"] ?></h5>
+                        <input type="text" name="no_pesanan" id="no_pesanan" value="<?= $row["no_pesanan"] ?>" hidden
+                               readonly>
+                        <hr>
+                        <p class="card-text">Rincian Pesanan :</p>
+                        <table class="table table-bordered table-responsive">
+                            <tr>
+                                <td>Nama Menu</td>
+                                <td>Jumlah</td>
+                            </tr>
+                            <?php
+                            $dataDetail = getPesananBaristadetail($row['no_pesanan'])->fetch_all(MYSQLI_ASSOC);
+                            foreach ($dataDetail as $row) { ?>
+                                <tr>
+                                    <td><?= $row['menu']; ?></td>
+                                    <td><?= $row['qty']; ?></td>
+                                </tr>
+                            <?php } ?>
+                        </table>
+                        <div class="btn-selesai" align="right" style="margin-top: 20px;">
+                            <a class="btn btn-primary" onclick="doSave(<?= $row["no_pesanan"] ?>)">Selesai</a>
                         </div>
                     </div>
                 </div>
+                <div class="card">
+
+                </div>
+            </div>
             <?php
-            }
-            ?>
-        </div>
-    </section>
+
+        }
+        ?>
+    </div>
+</section>
 </body>
+<script>
+    function doSave(id) {
+        let noPesanan = id;
+        $.ajax({
+            data: "no_pesanan=" + noPesanan,
+            url: "crud/update-dasboard-barista.php",
+            type: "POST",
+            success: function (response) {
+
+                if (response == 1) {
+                    swal.fire({
+                        title: "Sukses di update!",
+                        text: "Sukses data diubah",
+                        icon: "success",
+                        button: "OK!",
+                    })
+                        .then((value) => {
+                            location.reload();
+                        });
+
+                } else {
+                    swal.fire({
+                        title: "Gagal di update!",
+                        text: "Data gagal diubah",
+                        icon: "error",
+                        button: "OK!",
+                    })
+                        .then((value) => {
+                            location.reload();
+                        });
+                }
+            }
+        })
+
+    }
+
+    function showInformation() {
+        swal.fire({
+            icon: "info",
+            title: "Information",
+            text: "Tekan tombol selesai apabila pesanan sudah dibuat.",
+            showConfirmButton: true,
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "Alright!",
+        });
+    }
+</script>

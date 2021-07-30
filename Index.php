@@ -13,7 +13,7 @@
         <center>
             <img src="https://cdn.discordapp.com/attachments/859080381517266944/865996965488754728/WhatsApp_Image_2021-07-03_at_12.23.31.jpeg" style="width: 10rem;" class="mt-5">
             <h1>KopiHub</h1>
-            <div class="card bg-white mt-4" style="width: 45%;">
+            <div class="card mt-4  shadow p-3 mb-5 bg-white rounded" style="width: 45%;">
                 <div class=" card-body">
                     <?php
                     if (isset($_GET["error"])) {
@@ -48,7 +48,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="right"><input type="submit" name="TblLogin" value="Login" class="btn btn-success"></td>
+                                    <td align="right"><input type="submit" name="TblLogin" value="Login" class="btn btn-primary"></td>
                                 </tr>
                             </table>
                         </form>
