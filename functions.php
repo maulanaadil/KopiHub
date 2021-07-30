@@ -7,7 +7,7 @@ function dbConnect()
 
 // Query update Stok Menu
 function updateStokMenu($id_menu, $stok) {
-    return "UPDATE menu SET stok = '$stok' WHERE id_menu = '$id_menu';";
+    return "UPDATE menu SET stok = stok-'$stok' WHERE id_menu = '$id_menu';";
 }
 
 // Format Rupiah
@@ -205,6 +205,27 @@ function nav($title)
        <p class="h6" style="color: white;">Halo, <?= $_SESSION["nama"]; ?></p>
     </div>
   </nav>
+<?php
+}
+
+function nav2()
+{
+?>
+  <!DOCTYPE html>
+  <html>
+
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+
+     <script src="https://code.jquery.com/jquery.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="https://kit.fontawesome.com/f26d8b4cf2.js" crossorigin="anonymous"></script>
+
+  </head>
+
 <?php
 }
 

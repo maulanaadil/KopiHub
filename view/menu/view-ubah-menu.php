@@ -12,6 +12,8 @@ $data = getDataMenu($id_menu)->fetch_assoc();
 
 nav("Ubah Menu");
 ?>
+
+<!--//TODO : FUNCTION UPDATE MENU BELOM-->
 <style>
     .gambar {
         max-width: 250px;
@@ -33,10 +35,10 @@ nav("Ubah Menu");
                     <td>Nama Menu</td>
                     <td><input type="text" name="nama" class="form-control" required value="<?= $data["nama_menu"]; ?>"></td>
                 </tr>
-<!--                <tr>-->
-<!--                    <td>Deskripsi</td>-->
-<!--                    <td><input type="text" name="deskripsi" class="form-control" required value="--><?//= $data["deskripsi"]; ?><!--"></td>-->
-<!--                </tr>-->
+                <tr>
+                    <td>Deskripsi</td>
+                    <td><input type="text" name="deskripsi" class="form-control" required value="<?= $data["deskripsi"]; ?>"></td>
+                </tr>
                 <tr>
                     <td>Harga</td>
                     <td><input type="text" name="harga" class="form-control" required value="<?= $data["harga"]; ?>"></td>
@@ -46,10 +48,6 @@ nav("Ubah Menu");
                     <td><input type="number" name="stok" class="form-control" required value="<?= $data["stok"]; ?>"></td>
                 </tr>
                 <tr>
-                    <td>Deskripsi</td>
-                    <td><input type="text" name="deskripsi" class="form-control" required></td>
-                </tr>
-                <tr>
                     <td>Gambar</td>
                     <td><input type="file" name="gambar" class="form-control" id="file" value="<?= $data["gambar_menu"]; ?>"></td>
                 </tr>
@@ -57,7 +55,7 @@ nav("Ubah Menu");
                     <td></td>
                     <td align="right">
                         <img align="left" class="gambar mb-3" src="default.jpg" alt="Pilih Gambar" id="gambar" onError="$(this).hide();">
-                        <a href="view-lihat-menu.php" class="btn btn-secondary">Batal</a>
+                        <a href="view-lihat-menu.php" class="btn btn-outline-secondary">Batal</a>
                         <input type="submit" name="TblSimpan" value="Simpan" class="btn btn-success">
                     </td>
                 </tr>
@@ -83,8 +81,4 @@ nav("Ubah Menu");
         $('#gambar').show();
         readURL(this);
     });
-
-    function updateData() {
-
-    }
 </script>

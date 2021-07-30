@@ -17,7 +17,6 @@ if ($db->connect_errno == 0) {
 
     $queryPesanan = addPesanan($noMeja, $statusPesanan, $jumlahPemesanan, $subTotal);
 
-    // TODO: Tambahan query mengurangi stock dari table menu
 
 
     if (mysqli_query($db, $queryPesanan)) {
@@ -40,17 +39,11 @@ if ($db->connect_errno == 0) {
                 $idmenu = $data['id_menu'];
                 $jml = $data['qty'];
 
-//                $queryGetStokMenu = getDataMenu($idmenu);
-//                $data2 = mysqli_query($db, $queryGetStokMenu);
-//                $row2 = mysqli_fetch_array($data2);
-
-
-//                $value = intval($row2['stok']) - intval($data['qty']);
 
                 $queryPesanan = addPesanandetail($nopesan, $idmenu, $_SESSION['id_pegawai'], $jml);
-//                $queryUpdateStokMenu = updateStokMenu($idmenu, $value);
+                $queryUpdateStokMenu = updateStokMenu($idmenu, $jml);
                 mysqli_query($db, $queryPesanan);
-//                mysqli_query($db, $queryUpdateStokMenu);
+                mysqli_query($db, $queryUpdateStokMenu);
             }
             if ($db->affected_rows > 0) {
                 echo 1;

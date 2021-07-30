@@ -140,7 +140,7 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
                         if ($_SESSION['jabatan'] == "barista") {
                             ?>
                             <div class="btn_hapus_barista" align="right">
-                                <button onclick="doDelete(<?= $row['id_menu']; ?>)"
+                                <button onclick="doDelete('<?= $row['id_menu']; ?>')"
                                    class="btn btn-outline-danger"><i class="fa fa-trash">&nbsp;</i> Hapus</button>
                                 <a>&nbsp;</a>
                                 <a href="view-ubah-menu.php?id_menu=<?php echo $row['id_menu']; ?>"
@@ -158,7 +158,6 @@ $data = getMenu()->fetch_all(MYSQLI_ASSOC);
 </body>
 
 <script>
-    //TODO: MASIH ADA BUG PAS HAPUS MENU
     function doDelete(id) {
         Swal.fire({
             title: 'Are you sure?',

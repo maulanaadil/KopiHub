@@ -94,7 +94,7 @@ $dataBarista = getPesananBarista2()->fetch_all(MYSQLI_ASSOC);
 <!--        TAMPILAN INFORMASI BARISTA-->
         <div class="information">
             <p class="h3">List Pesanan</p>
-            <dd>List dibawah merupakan list pesanan yang belum dibuat.
+            <dd>List dibawah merupakan campuran list pesanan yang telah dipesan.
             </dd>
         </div>
         <hr>

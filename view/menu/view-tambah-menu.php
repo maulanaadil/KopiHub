@@ -20,6 +20,7 @@ nav("Tambah Menu");
 <body>
     <div class="container-fluid mt-4" align="center">
         <h1>Tambah Menu</h1>
+            <form action="crud/tambah-menu.php" method="post" class="mt-5" enctype="multipart/form-data">
             <table class="table-sm">
                 <tr>
                     <td width="25%">ID Menu</td>
@@ -49,11 +50,12 @@ nav("Tambah Menu");
                     <td></td>
                     <td align="right">
                         <img align="left" class="gambar mb-3" src="default.jpg" alt="Pilih Gambar" id="gambar" onError="$(this).hide();">
-                        <a href="view-lihat-menu.php" class="btn btn-secondary">Batal</a>
-                        <input type="submit" name="TblSimpan" value="Simpan" class="btn btn-success" onclick="addData()">
+                        <a href="view-lihat-menu.php" class="btn btn-outline-secondary">Batal</a>
+                        <input type="submit" name="TblSimpan" value="Simpan" class="btn btn-success">
                     </td>
                 </tr>
             </table>
+            </form>
     </div>
 <script type="text/javascript">
     function readURL(input) {
@@ -73,84 +75,5 @@ nav("Tambah Menu");
         readURL(this);
     });
 
-    function addData() {
-        let id = $("#txt_id").val();
-        let name = $("#txt_nama").val();
-        let desc = $("#txt_desc").val();
-        let harga = $("#txt_harga").val();
-        let stock = $("#txt_stok").val();
-        let image = $("#file").val();
-
-        if (id == "") {
-            swal.fire({
-                title: "Error!",
-                text: "ID Menu Tidak boleh kosong",
-                icon: "info",
-                button: "OK!",
-            })
-            return false;
-        } else if (name == "") {
-            swal.fire({
-                title: "Error!",
-                text: "Nama Menu Tidak boleh kosong",
-                icon: "info",
-                button: "OK!",
-            })
-            return false;
-        } else if (desc == "") {
-            swal.fire({
-                title: "Error!",
-                text: "Deskripsi Menu Tidak boleh kosong",
-                icon: "info",
-                button: "OK!",
-            })
-            return false;
-        } else if (harga == "") {
-            swal.fire({
-                title: "Error!",
-                text: "Harga Menu Tidak boleh kosong",
-                icon: "info",
-                button: "OK!",
-            })
-            return false;
-        } else if (stock == "") {
-            swal.fire({
-                title: "Error!",
-                text: "Stock Menu Tidak boleh kosong",
-                icon: "info",
-                button: "OK!",
-            })
-            return false;
-        }
-        $.ajax({
-            data: "idMenu=" + id + "&nama=" + name + "&deskripsi=" + desc + "&harga=" + harga + "&stok=" + stock + "&gambar=" + image,
-            url: "crud/tambah-menu.php",
-            type: "POST",
-            success: function (response) {
-                if (response==1) {
-                    swal.fire({
-                        title: "Berhasil",
-                        text: "Berhasil memasukan data!",
-                        icon: "success",
-                        button: "OK!",
-                    })
-                        .then((value) => {
-                            location.href = "view-lihat-menu.php";
-                        });
-
-                } else {
-                    swal.fire({
-                        title: "Gagal",
-                        text: "Gagal memasukan data!",
-                        icon: "error",
-                        button: "OK!",
-                    })
-                        .then((value) => {
-                            location.href = "view-lihat-menu.php";
-                        });
-                }
-            },
-        });
-    }
 </script>
 </body>

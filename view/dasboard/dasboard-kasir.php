@@ -61,7 +61,7 @@ $data = getPesananBelumDibayar()->fetch_all(MYSQLI_ASSOC);
 <!--      INFORMATION HEADER-->
       <div class="information">
           <p class="h3">Dashboard Kasir &nbsp;<span class="text-primary" onclick="showInformation()"><i class="fa fa-info-circle"></i></span></p>
-          <dd>List dibawah merupakan pesanan yang belum dibayar tekan tombol bayar apabila pesanan akan dibayar.</dd>
+          <dd>List dibawah merupakan pesanan yang belum dibayar.</dd>
       </div>
       <hr>
       <div class="row">

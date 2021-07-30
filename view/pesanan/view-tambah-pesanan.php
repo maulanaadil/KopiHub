@@ -89,7 +89,6 @@ if (!isset($_SESSION["id_pegawai"])) {
 <script>
     $(document).ready(function () {
         $("#btn-save").click(function(){
-            // addData();
             doSave();
         })
 
