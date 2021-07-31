@@ -19,7 +19,7 @@ if (mysqli_query($db, $ubahPesanan)) {
                 } else {
                     echo 0;
                 }
-            } else {
+            }  else {
                 echo "total harga Tidak ada";
             }
     } else {

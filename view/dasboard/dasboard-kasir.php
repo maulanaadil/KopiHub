@@ -9,6 +9,7 @@ nav("Lihat Pesanan");
 
 dbConnect();
 $data = getPesananBelumDibayar()->fetch_all(MYSQLI_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +66,20 @@ $data = getPesananBelumDibayar()->fetch_all(MYSQLI_ASSOC);
       </div>
       <hr>
       <div class="row">
-      <?php foreach ($data as $barisdata) {
+<!--          INFORMATION BODY-->
+      <?php
+      if ( getPesananBelumDibayar()->num_rows <= 0) {
+          ?>
+          <div class="item-empty">
+          <div class="pic-empty-states">
+            <img  class="empty-pic" src="../../assets/Empty%20State.png">
+          </div>
+              <h5 class="title-empty" >Data Kosong</h5>
+              <dd class="desc-empty">pesanan tersebut belum dibuat coba kontak barista!</dd>
+          </div>
+              <?php
+      }
+      foreach ($data as $barisdata) {
           ?>
 <!--CARD LIST-->
           <div class="col-sm-6">

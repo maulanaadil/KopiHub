@@ -1,4 +1,7 @@
-<?php include("functions.php") ?>
+<?php
+include("functions.php") ;
+nav2();
+?>
 
 <html>
 
@@ -39,12 +42,12 @@
                             <table class="table table-borderless">
                                 <tr>
                                     <td>
-                                        <input type="text" name="userid" class="form-control" placeholder="Input Your ID">
+                                        <input type="text" name="userid" id="txt_id" class="form-control" placeholder="Input Your ID" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="password" name="pass" class="form-control" placeholder="Input Your Passoword">
+                                        <input type="password" name="pass" id="txt_pass" class="form-control" placeholder="Input Your Passoword" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -58,5 +61,4 @@
         </center>
     </div>
 </body>
-
 </html>

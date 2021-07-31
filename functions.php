@@ -5,6 +5,32 @@ function dbConnect()
   return $db;
 }
 
+function tgl_indo($tanggal){
+    $bulan = array (
+        1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    );
+    $pecahkan = explode('-', $tanggal);
+
+    return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}
+
+function konversiAngkaMenjadiBulan($bulan) {
+    $monthNum = sprintf("%02s", $bulan);
+    $monthName = date("F", strtotime($monthNum));
+    return $monthName;
+}
+
 // Query update Stok Menu
 function updateStokMenu($id_menu, $stok) {
     return "UPDATE menu SET stok = stok-'$stok' WHERE id_menu = '$id_menu';";

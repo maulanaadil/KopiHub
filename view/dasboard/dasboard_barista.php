@@ -34,7 +34,7 @@ $data = getPesananBarista()->fetch_all(MYSQLI_ASSOC);
         </ul>
     </menu>
 </aside>
-<!--CARD SECTION-->
+<!--INFORMATION HEADER-->
 <section class="jumbotron">
     <div class="information">
         <p class="h3">Dashboard Barista &nbsp;<span class="text-primary" onclick="showInformation()"><i
@@ -43,9 +43,22 @@ $data = getPesananBarista()->fetch_all(MYSQLI_ASSOC);
         </dd>
     </div>
     <hr>
+<!--    INFORMATION BODY-->
     <div class="row">
-
-        <?php foreach ($data as $row) { ?>
+        <?php
+        if ( getPesananBarista()->num_rows <= 0) {
+            ?>
+            <div class="item-empty">
+                <div class="pic-empty-states">
+                    <img  class="empty-pic" src="../../assets/Empty%20State.png">
+                </div>
+                <h5 class="title-empty" >Data Kosong</h5>
+                <dd class="desc-empty">Tidak ada pesanan saat ini.</dd>
+            </div>
+            <?php
+        }
+        foreach ($data as $row) { ?>
+<!--                CARD LIST SECTION-->
             <div class="col-sm-3">
                 <div class="card">
                     <div class="card-body">

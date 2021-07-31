@@ -92,8 +92,32 @@ $db = dbConnect();
         <!--        TAMPILAN LAPORAN-->
         <div class="row justify-content-center">
             <div class="col-md  -12">
+                <?php
+                        if (isset($_POST['btn_cari'])) {
+                        $bulan = $db->escape_string($_POST['slc_bulan']);
+                        $tahun = $db->escape_string($_POST['tahun']);
+                        $no = 1;
+                        $data = getLaporanBulanan($bulan, $tahun)->fetch_all(MYSQLI_ASSOC);
+
+                        $bulan2 = konversiAngkaMenjadiBulan($bulan);
+
+                        if (getLaporanBulanan($bulan, $tahun)->num_rows <= 0) {
+                            ?>
+                            <div class="item-empty">
+                                <div class="pic-empty-states">
+                                    <img  class="empty-pic" src="../../assets/Empty%20State.png">
+                                </div>
+                                <h5 class="title-empty" >Data Kosong</h5>
+                                <dd class="desc-empty">Tidak data pada bulan <?= $bulan2; ?> dan tahun <?= $tahun; ?>.</dd>
+                            </div>
+                <?php
+                            $display = "hidden";
+                        } else {
+                            $display = "visible";
+                        }
+                        ?>
                 <div class="tampilan-tabel">
-                    <table class="table table-responsive" id="displaytable" style="width: 100%;">
+                    <table class="table table-responsive" id="displaytable" style="width: 100%; visibility: <?= $display; ?> ">
                         <thead>
                         <tr>
                             <th scope="col">No</th>
@@ -102,34 +126,31 @@ $db = dbConnect();
                         </tr>
                         </thead>
                         <tbody>
+                        </tbody>
                         <?php
-                        if (isset($_POST['btn_cari'])) {
-                        $bulan = $db->escape_string($_POST['slc_bulan']);
-                        $tahun = $db->escape_string($_POST['tahun']);
-                        $no = 1;
-                        $data = getLaporanBulanan($bulan, $tahun)->fetch_all(MYSQLI_ASSOC);
-
                         foreach ($data as $dataLaporan) :
-                        ?>
-                        <tr>
-                            <td scope="row"><?= $no++ ?></td>
-                            <td><?= $dataLaporan['tanggal']; ?></td>
-                            <td><?php
-                                $value = (int)$dataLaporan['total'];
-                                echo rupiah($value);
-                                ?></td>
-                        </tr>
+                            ?>
+                            <tr>
+                                <td scope="row"><?= $no++ ?></td>
+                                <td><?= $dataLaporan['tanggal']; ?></td>
+                                <td><?php
+                                    $value = (int)$dataLaporan['total'];
+                                    echo rupiah($value);
+                                    ?></td>
+                            </tr>
                         <?php
                         endforeach;
 
                         $data2 = getTotalBulanan($bulan, $tahun)->fetch_all(MYSQLI_ASSOC);
-                        foreach ($data2 as $total) :
+                        foreach ($data2
+
+                        as $total) :
                         ?>
                         <tr>
                             <td colspan="2" align="center"> Total Pendapatan :</td>
                             <td>
                                 <?php
-                                $value = (int) $total['total'];
+                                $value = (int)$total['total'];
                                 echo rupiah($value);
                                 ?>
                             </td>
@@ -145,16 +166,16 @@ $db = dbConnect();
             <!--            BUTTON EXPORT-->
             <form action="excel.php" method="post">
 
-            <div class="btn-export-to-excel" align="right">
-                <input type="hidden" name="slc_bulan1" id="slc_bulan1" value="<?= $bulan; ?>">
-                <input type="hidden" name="tahun1" id="tahun1" value="<?= $tahun; ?>">
-                <button name="export_excel" onclick="exceldo()" class="btn btn-success btn-lg"><i class="fa fa-file-excel-o">&nbsp;</i> Export to Excel</button>
-            </div>
+                <div class="btn-export-to-excel" align="right" style="visibility: <?= $display; ?>">
+                    <input type="hidden" name="slc_bulan1" id="slc_bulan1" value="<?= $bulan; ?>">
+                    <input type="hidden" name="tahun1" id="tahun1" value="<?= $tahun; ?>">
+                    <button name="export_excel" onclick="exceldo()" class="btn btn-success btn-lg"><i
+                                class="fa fa-file-excel-o">&nbsp;</i> Export to Excel
+                    </button>
+                </div>
             </form>
         </div>
     </div>
 </section>
-
-
 </body>
 </html>

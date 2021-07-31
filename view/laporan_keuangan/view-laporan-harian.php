@@ -76,8 +76,29 @@ $db = dbConnect();
 <!--        TAMPILAN LAPORAN-->
         <div class="row justify-content-center">
             <div class="col-md-12">
+                <?php
+                if (isset($_POST['btn_cari'])) {
+                $tanggal = $db->escape_string($_POST['tanggal']);
+                $no = 1;
+                $data = getLaporanHarian($tanggal)->fetch_all(MYSQLI_ASSOC);
+                $tanggal2 = tgl_indo($tanggal);
+                if (getLaporanHarian($tanggal)->num_rows <= 0) {
+                ?>
+                <div class="item-empty">
+                    <div class="pic-empty-states">
+                        <img  class="empty-pic" src="../../assets/Empty%20State.png">
+                    </div>
+                    <h5 class="title-empty" >Data Kosong</h5>
+                    <dd class="desc-empty">Tidak data pada tanggal <?= $tanggal2; ?>.</dd>
+                </div>
+                <?php
+                    $display = "hidden";
+                        } else {
+                    $display = "visible";
+                }
+                ?>
                 <div class="tampilan-tabel">
-                    <table class="table table-responsive" id="displaytable" style=" width: 100%;">
+                    <table class="table table-responsive" id="displaytable" style=" width: 100%; visibility: <?= $display ?>">
                         <thead>
                         <tr>
                             <th scope="col">No</th>
@@ -90,10 +111,6 @@ $db = dbConnect();
                         <tbody>
                         <?php
 
-                        if (isset($_POST['btn_cari'])) {
-                        $tanggal = $db->escape_string($_POST['tanggal']);
-                        $no = 1;
-                        $data = getLaporanHarian($tanggal)->fetch_all(MYSQLI_ASSOC);
 
                         foreach ($data as $dataLaporan) :
                         ?>
