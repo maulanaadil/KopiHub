@@ -17,8 +17,6 @@ if ($db->connect_errno == 0) {
 
     $queryPesanan = addPesanan($noMeja, $statusPesanan, $jumlahPemesanan, $subTotal);
 
-
-
     if (mysqli_query($db, $queryPesanan)) {
         if ($db->affected_rows > 0) {
             $query = "select no_pesanan from pesanan order by no_pesanan DESC";

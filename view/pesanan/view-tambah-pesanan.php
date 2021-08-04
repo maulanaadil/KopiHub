@@ -88,6 +88,7 @@ if (!isset($_SESSION["id_pegawai"])) {
 </body>
 <script>
     $(document).ready(function () {
+        var stok;
         $("#btn-save").click(function(){
             doSave();
         })
@@ -95,6 +96,8 @@ if (!isset($_SESSION["id_pegawai"])) {
         $('#slc-menu').on('change', function() {
             var expl = $(this).val().split(",");
             $(".text_stok").text(expl[1]);
+
+            stok = expl[1];
         });
         window.arrayItem = [];
         var i = 0;
@@ -135,6 +138,17 @@ if (!isset($_SESSION["id_pegawai"])) {
                     icon: "info",
                     title: "Failed",
                     text: "Jumlah Menu Kosong",
+                    showConfirmButton: true,
+                    confirmButtonColor: "#3085d6",
+                    confirmButtonText: "Alright!",
+                });
+                $("input[name='txt_jumlah']").focus();
+                return false;
+            } else if (stok <= jumlah) {
+                swal.fire({
+                    icon: "error",
+                    title: "Failed",
+                    text: "Data Jumlah melebihi data stok!",
                     showConfirmButton: true,
                     confirmButtonColor: "#3085d6",
                     confirmButtonText: "Alright!",
@@ -189,7 +203,6 @@ if (!isset($_SESSION["id_pegawai"])) {
     }
 
     function doSave(){
-
 
             $.ajax({
                 type:"POST",
