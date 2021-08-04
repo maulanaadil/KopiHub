@@ -16,9 +16,10 @@ if (isset($_POST["TblSimpan"])) {
     $deskripsi = $db->escape_string($_POST['deskripsi']);
     $gambar = $_FILES['gambar']['name'];
     $tmp = $_FILES['gambar']['tmp_name'];
+    $data = getDataMenu($idMenu)->fetch_assoc();
 
     if ($gambar == "") {
-        $gambarbaru = "";
+        $gambarbaru = $data["gambar_menu"];
     } else
         $gambarbaru = "KopiHub Image" . date(' d-m-y ') . $gambar;
 
