@@ -10,7 +10,9 @@ if (isset($_POST["export_excel"])) {
     $bulan = $db->escape_string($_POST['slc_bulan1']);
     $tahun = $db->escape_string($_POST['tahun1']);
 
+    $no =1;
     $data = getLaporanBulanan($bulan, $tahun);
+    $data2 = getTotalBulanan($bulan, $tahun)->fetch_array();
     if (mysqli_num_rows($data) > 0) {
         $output .= '
             <table class="table table-bordered" bordered="1">
@@ -23,11 +25,13 @@ if (isset($_POST["export_excel"])) {
         while ($row = mysqli_fetch_array($data)) {
             $output .= '
                 <tr>
+                    <td>'. $no++ .'</td>
                     <td>'. $row["tanggal"].'</td>
                     <td>'. $row["total"].'</td>
                 </tr>
             ';
         }
+        $output .= '<tr><td colspan="2">Total Pendapatan : </td><td>'. $data2[0] .'</td></tr>';
         $output .= '</table>';
         header("Content-Type: application/xls");
         header("Content-Disposition: attachment; filename=laporan.xls");
