@@ -44,7 +44,7 @@ if (!isset($_SESSION["id_pegawai"])) {
 
                 </td>
                 <td>
-                    <input type="text" name="txt_jumlah" class="form-control" placeholder="jumlah">
+                    <input type="text" id="txt_jumlah" name="txt_jumlah" class="form-control" placeholder="jumlah">
                 </td>
                 <td>
                     <i class="btn btn-xs btn-success" id="add-menu"><i class="icon icon-plus"></i></i>
@@ -88,8 +88,9 @@ if (!isset($_SESSION["id_pegawai"])) {
 </body>
 <script>
     $(document).ready(function () {
-        var stok;
         var jumlah;
+        let stok;
+        var checkStok;
         $("#btn-save").click(function(){
             doSave();
         })
@@ -115,7 +116,7 @@ if (!isset($_SESSION["id_pegawai"])) {
             var id = $("select[name='slc_menu']").val().split(",");
             var menu = $("select[name='slc_menu']").find(':selected').text();
 
-            jumlah = $("input[name='txt_jumlah']").val();
+            jumlah = $("#txt_jumlah").val();
             var harga = $("select[name='slc_menu']").find(':selected').data('harga');
 
             var check = true;
@@ -125,6 +126,16 @@ if (!isset($_SESSION["id_pegawai"])) {
                 }
             })
             console.log(jumlah);
+            console.log("Ini stok : " + stok);
+            if (jumlah > stok) {
+                console.log(true);
+                checkStok = true;
+            } else {
+                console.log(false);
+                checkStok = false;
+                alert(jumlah + "&" + stok);
+            }
+            // return false;
             if (check === false) {
                 swal.fire({
                     icon: "info",
@@ -146,8 +157,7 @@ if (!isset($_SESSION["id_pegawai"])) {
                 });
                 $("input[name='txt_jumlah']").focus();
                 return false;
-            }
-            if (jumlah > stok) {
+            } else if (checkStok == false) {
                 swal.fire({
                     icon: "error",
                     title: "Failed",
