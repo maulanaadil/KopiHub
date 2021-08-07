@@ -89,6 +89,7 @@ if (!isset($_SESSION["id_pegawai"])) {
 <script>
     $(document).ready(function () {
         var stok;
+        var jumlah;
         $("#btn-save").click(function(){
             doSave();
         })
@@ -114,7 +115,7 @@ if (!isset($_SESSION["id_pegawai"])) {
             var id = $("select[name='slc_menu']").val().split(",");
             var menu = $("select[name='slc_menu']").find(':selected').text();
 
-            var jumlah = $("input[name='txt_jumlah']").val();
+            jumlah = $("input[name='txt_jumlah']").val();
             var harga = $("select[name='slc_menu']").find(':selected').data('harga');
 
             var check = true;
@@ -123,6 +124,7 @@ if (!isset($_SESSION["id_pegawai"])) {
                     check = false;
                 }
             })
+            console.log(jumlah);
             if (check === false) {
                 swal.fire({
                     icon: "info",
@@ -144,7 +146,8 @@ if (!isset($_SESSION["id_pegawai"])) {
                 });
                 $("input[name='txt_jumlah']").focus();
                 return false;
-            } else if (stok <= jumlah) {
+            }
+            if (jumlah > stok) {
                 swal.fire({
                     icon: "error",
                     title: "Failed",
@@ -156,6 +159,7 @@ if (!isset($_SESSION["id_pegawai"])) {
                 $("input[name='txt_jumlah']").focus();
                 return false;
             }
+
 
             var append_id = "result_menu";
 
