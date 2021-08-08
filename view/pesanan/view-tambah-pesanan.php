@@ -19,67 +19,70 @@ if (!isset($_SESSION["id_pegawai"])) {
 <div class="row">
     <div class="col-sm-6 offset-sm-3">
         <form role="form" id="frm-data">
-        <table align="center" class="table-sm table table-condensed">
-            <tr>
-                <td>No Meja</td>
-                <td colspan="2"><input type="text" id="no_meja" name="noMeja" class="form-control" placeholder="Masukan No Meja"></td>
-            </tr>
+            <table align="center" class="table-sm table table-condensed">
+                <tr>
+                    <td>No Meja</td>
+                    <td colspan="2"><input type="text" id="no_meja" name="noMeja" class="form-control"
+                                           placeholder="Masukan No Meja"></td>
+                </tr>
 
 
-            <tr>
-                <td>Pilih Menu</td>
+                <tr>
+                    <td>Pilih Menu</td>
 
-                <td>
-                    <select name="slc_menu" id="slc-menu" class="form-control">
-                        <option value="">- Pilih Menu -</option>
-                        <?php
-                        dbConnect();
-                        $data = getMenu()->fetch_all(MYSQLI_ASSOC);
-                        foreach ($data as $row) { ?>
-                            <option value="<?= $row['id_menu']; ?>,<?= $row['stok']; ?>"
-                                    data-harga="<?= $row['harga']; ?>"><?= $row['nama_menu']; ?></option>
-                        <?php } ?>
-                    </select>
-                    Stok <span class="text_stok"></span>
+                    <td>
+                        <select name="slc_menu" id="slc-menu" class="form-control">
+                            <option value="">- Pilih Menu -</option>
+                            <?php
+                            dbConnect();
+                            $data = getMenu()->fetch_all(MYSQLI_ASSOC);
+                            foreach ($data as $row) { ?>
+                                <option value="<?= $row['id_menu']; ?>,<?= $row['stok']; ?>"
+                                        data-harga="<?= $row['harga']; ?>"><?= $row['nama_menu']; ?></option>
+                            <?php } ?>
+                        </select>
+                        Stok <span class="text_stok"></span>
 
-                </td>
-                <td>
-                    <input type="text" id="txt_jumlah" name="txt_jumlah" class="form-control" placeholder="jumlah">
-                </td>
-                <td>
-                    <i class="btn btn-xs btn-success" id="add-menu"><i class="icon icon-plus"></i></i>
-                </td>
-            <tr>
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <td>Nama Menu</td>
-                        <td>Jumlah</td>
-                        <td>Sub Total</td>
-                    </tr>
-                    </thead>
-                    <tbody id="result_menu">
+                    </td>
+                    <td>
+                        <input type="text" id="txt_jumlah" name="txt_jumlah" class="form-control" placeholder="jumlah">
+                    </td>
+                    <td>
+                        <i class="btn btn-xs btn-success" id="add-menu"><i class="icon icon-plus"></i></i>
+                    </td>
+                <tr>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <td>Nama Menu</td>
+                            <td>Jumlah</td>
+                            <td>Sub Total</td>
+                        </tr>
+                        </thead>
+                        <tbody id="result_menu">
 
-                    </tbody>
-                </table>
-            </tr>
-            <tr>
-                <td>Jumlah Pemesanan</td>
-                <td><input type="number" id="jumlah_pemesanan" name="jumlah_pemesanan" class="form-control" placeholder="0" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>Total Harga</td>
-                <td><input type="number" id="total_harga" name="total_harga" class="form-control" placeholder="0" readonly></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
+                        </tbody>
+                    </table>
+                </tr>
+                <tr>
+                    <td>Jumlah Pemesanan</td>
+                    <td><input type="number" id="jumlah_pemesanan" name="jumlah_pemesanan" class="form-control"
+                               placeholder="0" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total Harga</td>
+                    <td><input type="number" id="total_harga" name="total_harga" class="form-control" placeholder="0"
+                               readonly></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
         </form>
 
         <div class="button" align="right">
-            <button value="Submit" class="btn btn-success" name="btnSubmit" id="btn-save"> Simpan </button>
+            <button value="Submit" class="btn btn-success" name="btnSubmit" id="btn-save"> Simpan</button>
         </div>
 
     </div>
@@ -91,11 +94,11 @@ if (!isset($_SESSION["id_pegawai"])) {
         var jumlah;
         let stok;
         var checkStok;
-        $("#btn-save").click(function(){
+        $("#btn-save").click(function () {
             doSave();
         })
 
-        $('#slc-menu').on('change', function() {
+        $('#slc-menu').on('change', function () {
             var expl = $(this).val().split(",");
             $(".text_stok").text(expl[1]);
 
@@ -103,12 +106,12 @@ if (!isset($_SESSION["id_pegawai"])) {
         });
         window.arrayItem = [];
         var i = 0;
-        window.arrayPesanan=[];
-        window.arrayTotal=[];
-        var jumlah_pesanan=0;
-        var jumlah_total=0;
-        var jumlah_total2=0;
-        var jumlah_pesanan2=0;
+        window.arrayPesanan = [];
+        window.arrayTotal = [];
+        var jumlah_pesanan = 0;
+        var jumlah_total = 0;
+        var jumlah_total2 = 0;
+        var jumlah_pesanan2 = 0;
 
         $("#add-menu").click(function () {
 
@@ -128,14 +131,12 @@ if (!isset($_SESSION["id_pegawai"])) {
             console.log(jumlah);
             console.log("Ini stok : " + stok);
             if (jumlah > stok) {
-                console.log(false+"sd");
                 checkStok = false;
             } else {
                 console.log(true);
                 checkStok = true;
-                alert(jumlah + "&" + stok);
             }
-            // return false;
+
             if (check === false) {
                 swal.fire({
                     icon: "info",
@@ -177,21 +178,20 @@ if (!isset($_SESSION["id_pegawai"])) {
 
             var append_id = "result_menu";
 
-            $("#" + append_id).append('<tr id="item' + i + '"><td style="vertical-align:middle"><span>' + menu + '</span><input type="hidden" name="id_menu[]" value="' + id[0] + '"></td><td class="text_pesanan" style="vertical-align:middle"<span>' + jumlah + '</span><input type="hidden" name="jumlah[]" value="' + jumlah + '"></td><td class="text_total" style="vertical-align:middle"<span>' + parseInt(harga)*parseInt(jumlah) + '</span></td><td align="center"><button type="button" class="btn btn-danger btn-xs" onclick="deleteItem(' + i + ',' + parseInt(harga)*parseInt(jumlah) +',' + jumlah +')"><i class="icon icon-trash"></i></button></td></tr>');
+            $("#" + append_id).append('<tr id="item' + i + '"><td style="vertical-align:middle"><span>' + menu + '</span><input type="hidden" name="id_menu[]" value="' + id[0] + '"></td><td class="text_pesanan" style="vertical-align:middle"<span>' + jumlah + '</span><input type="hidden" name="jumlah[]" value="' + jumlah + '"></td><td class="text_total" style="vertical-align:middle"<span>' + parseInt(harga) * parseInt(jumlah) + '</span></td><td align="center"><button type="button" class="btn btn-danger btn-xs" onclick="deleteItem(' + i + ',' + parseInt(harga) * parseInt(jumlah) + ',' + jumlah + ')"><i class="icon icon-trash"></i></button></td></tr>');
             arrayItem.push(menu);
 
-               jumlah_pesanan=parseInt(arrayPesanan[1])+parseInt(jumlah);
-               jumlah_total=parseInt(arrayTotal[1])+(parseInt(jumlah)*parseInt(harga));
-
+            jumlah_pesanan = parseInt(arrayPesanan[1]) + parseInt(jumlah);
+            jumlah_total = parseInt(arrayTotal[1]) + (parseInt(jumlah) * parseInt(harga));
 
 
             $("button").addClass("");
             $("select[name='slc_menu']").val("");
             $("input[name='txt_jumlah']").val("");
             $(".text_stok").text("");
-            jumlah_total2=0;
-            jumlah_pesanan2=0;
-            $('#result_menu tr').each(function() {
+            jumlah_total2 = 0;
+            jumlah_pesanan2 = 0;
+            $('#result_menu tr').each(function () {
                 jumlah_pesanan2 += parseInt($(this).find(".text_pesanan").text());
                 jumlah_total2 += parseInt($(this).find(".text_total").text());
             });
@@ -201,9 +201,9 @@ if (!isset($_SESSION["id_pegawai"])) {
         });
     });
 
-    function deleteItem(id,total,jumlah) {
-        var jumlah_pesanan= $("#jumlah_pemesanan").val()-parseInt(jumlah);
-        var jumlah_total=$("#total_harga").val()-parseInt(total);
+    function deleteItem(id, total, jumlah) {
+        var jumlah_pesanan = $("#jumlah_pemesanan").val() - parseInt(jumlah);
+        var jumlah_total = $("#total_harga").val() - parseInt(total);
 
         $("#jumlah_pemesanan").val(jumlah_pesanan);
         $("#total_harga").val(jumlah_total);
@@ -220,43 +220,43 @@ if (!isset($_SESSION["id_pegawai"])) {
         }
     }
 
-    function doSave(){
+    function doSave() {
 
-            $.ajax({
-                type:"POST",
-                data:$("#frm-data").serialize(),
+        $.ajax({
+            type: "POST",
+            data: $("#frm-data").serialize(),
 
-                url : "crud/tambah-pesanan.php",
+            url: "crud/tambah-pesanan.php",
 
-                beforeSend:function (){
+            beforeSend: function () {
 
-                },
+            },
 
-                success:function (reponse){
-                    if(reponse==1){
-                        swal.fire({
-                            title: "Informasi!",
-                            text: "berhasil",
-                            icon: "info",
-                            button: "OK!",
-                        }).then((value) => {
-                            location.reload();
-                        });
+            success: function (reponse) {
+                if (reponse == 1) {
+                    swal.fire({
+                        title: "Informasi!",
+                        text: "berhasil",
+                        icon: "info",
+                        button: "OK!",
+                    }).then((value) => {
+                        location.reload();
+                    });
 
-                    }else{
-                        swal.fire({
-                            title: "Informasi!",
-                            text: "error",
-                            icon: "error",
-                            button: "OK!",
-                        }).then((value) => {
-                            location.reload();
-                        });
-                    }
-
+                } else {
+                    swal.fire({
+                        title: "Informasi!",
+                        text: "error",
+                        icon: "error",
+                        button: "OK!",
+                    }).then((value) => {
+                        location.reload();
+                    });
                 }
 
-            })
+            }
+
+        })
 
     }
 </script>
