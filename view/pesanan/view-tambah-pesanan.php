@@ -99,7 +99,7 @@ if (!isset($_SESSION["id_pegawai"])) {
             var expl = $(this).val().split(",");
             $(".text_stok").text(expl[1]);
 
-            stok = expl[1];
+            stok = parseInt(expl[1]);
         });
         window.arrayItem = [];
         var i = 0;
@@ -116,7 +116,7 @@ if (!isset($_SESSION["id_pegawai"])) {
             var id = $("select[name='slc_menu']").val().split(",");
             var menu = $("select[name='slc_menu']").find(':selected').text();
 
-            jumlah = $("#txt_jumlah").val();
+            jumlah = parseInt($("#txt_jumlah").val());
             var harga = $("select[name='slc_menu']").find(':selected').data('harga');
 
             var check = true;
@@ -128,11 +128,11 @@ if (!isset($_SESSION["id_pegawai"])) {
             console.log(jumlah);
             console.log("Ini stok : " + stok);
             if (jumlah > stok) {
+                console.log(false+"sd");
+                checkStok = false;
+            } else {
                 console.log(true);
                 checkStok = true;
-            } else {
-                console.log(false);
-                checkStok = false;
                 alert(jumlah + "&" + stok);
             }
             // return false;
@@ -146,7 +146,9 @@ if (!isset($_SESSION["id_pegawai"])) {
                     confirmButtonText: "Alright!",
                 });
                 return false;
-            } else if (jumlah <= 0) {
+            }
+
+            if (jumlah <= 0) {
                 swal.fire({
                     icon: "info",
                     title: "Failed",
@@ -157,7 +159,9 @@ if (!isset($_SESSION["id_pegawai"])) {
                 });
                 $("input[name='txt_jumlah']").focus();
                 return false;
-            } else if (checkStok == false) {
+            }
+
+            if (checkStok == false) {
                 swal.fire({
                     icon: "error",
                     title: "Failed",
